@@ -26,5 +26,21 @@
 
     <string name="title_pois">Puntos de interes</string>
 
+    <string name="title_usuario">Usuario</string>
+    <string name="title_pass">Contraseña</string>
+    <string name="title_recordar">Recordar usuario y contraseña</string>
+    <string name="btn_Login">Iniciar sesion</string>
+    <string name="btn_registrarse">Registrarse</string>
+    <string name="title_registro">Registro</string>
+    <string name="title_edad">Edad</string>
+    <string name="title_sexo">Sexo</string>
+    <string name="title_motivo">Motivo de viaje</string>
+    <string name="title_origen">Estado de origen</string>
+    <string name="title_otro_origen">Pais de Origen</string>
+    <string name="title_acompañantes">¿Con quien(s) nos visita?</string>
+
+
+
+
 
 </resources>

@@ -27,12 +27,10 @@ public class SplashScreen extends Activity {
             public void run() {
 
                 // Start the next activity
-                Intent mainIntent = new Intent().setClass(
-                        SplashScreen.this, MainActivity.class);
+                Intent mainIntent = new Intent().setClass(SplashScreen.this, Login.class);
                 startActivity(mainIntent);
 
                 // Close the activity so the user won't able to go back this
-                // activity pressing Back button
                 finish();
             }
         };
