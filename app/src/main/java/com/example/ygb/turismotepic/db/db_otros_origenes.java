@@ -19,7 +19,8 @@ public class db_otros_origenes extends SQLiteOpenHelper {
 
 
 
-
+    //--------------------------------Insert Table Query
+    public static final String SQL_INSERT_ENTRIES = "INSERT INTO `otro_origen` (`id_otro_origen`, `pais`) VALUES (1, 'España'), (2, 'EUA'), (3, 'China'), (4, 'Brazil') ";
     //--------------------------------Delete Table Query
     public static final String SQL_DELETE_ENTRIES = " DROP TABLE IF EXIST " + TABLE_NAME;
     //--------------------------------Create Table Query

@@ -32,6 +32,8 @@
     <string name="title_registro">Registro</string>
     <string name="title_edad">Edad</string>
     <string name="title_sexo">Sexo</string>
+    <string name="title_hombre">Hombre</string>
+    <string name="title_mujer">Mujer</string>
     <string name="title_motivo">Motivo de viaje</string>
     <string name="title_origen">Estado de origen</string>
     <string name="title_otro_origen">Pais de Origen</string>

@@ -18,7 +18,8 @@ public class db_motivo extends SQLiteOpenHelper {
 
 
 
-
+    //--------------------------------Insert Table Query
+    public static final String SQL_INSERT_ENTRIES = "INSERT INTO `motivo` (`id_motivo`, `nombre`) VALUES (1, 'Negocio'), (2, 'Placer'), (3, 'Compras'), (4, 'Otros') ";
     //--------------------------------Delete Table Query
     public static final String SQL_DELETE_ENTRIES = " DROP TABLE IF EXIST " + TABLE_NAME;
     //--------------------------------Create Table Query

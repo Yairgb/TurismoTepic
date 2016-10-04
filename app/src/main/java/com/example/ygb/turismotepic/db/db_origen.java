@@ -19,7 +19,8 @@ public class db_origen extends SQLiteOpenHelper {
 
 
 
-
+    //--------------------------------Insert Table Query
+    public static final String SQL_INSERT_ENTRIES = "INSERT INTO `origen` (`id_origen`, `nombre_estado`, `municipio`) VALUES (1, 'Aguascalientes', ''), (2, 'Baja California', ''), (3, 'Baja California Sur', ''), (4, 'Campeche', ''), (5, 'CDMX', ''), (6, 'Chiapas', ''), (7, 'Chihuahua', ''), (8, 'Coahuila', ''), (9, 'Colima', ''), (10, 'Durango', ''), (11, 'Edo. Mex', ''), (12, 'Guanajuato', ''), (13, 'Guerrero', ''), (14, 'Hidalgo', ''), (15, 'Jalisco', ''), (16, 'Mechoacán', ''), (17, 'Morelos', ''), (18, 'Nayarit', ''), (19, 'Nuevo León', ''), (20, 'Oaxaca', ''), (21, 'Puebla', ''), (22, 'Querétaro', ''), (23, 'Quintana Roo', ''), (24, 'San Luis Potosí', ''), (25, 'Sinaloa', ''), (26, 'Sonora', ''), (27, 'Tabasco', ''), (28, 'Tamaulipas', ''), (29, 'Tlaxcala', ''), (30, 'Veracruz', ''), (31, 'Yucatan', ''), (32, 'Zacatecas', ''), (33, 'Otro', 'Otro') ";
     //--------------------------------Delete Table Query
     public static final String SQL_DELETE_ENTRIES = " DROP TABLE IF EXIST " + TABLE_NAME;
     //--------------------------------Create Table Query
@@ -39,6 +40,7 @@ public class db_origen extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE);
+        //db.execSQL("INSERT INTO `categorias` (`id_categoria`, `Nombre`) VALUES (1, 'Hotel'), (2, 'Restaurant'), (3, 'Monumento'), (4, 'Museo'), (5, 'Parque'), (6, 'Banco'), (7, 'Farmacia'), (8, 'Restaurant'), (9, 'Tienda'), (10, 'Plaza Comercial'), (11, 'Otro') ");
     }
 
     @Override

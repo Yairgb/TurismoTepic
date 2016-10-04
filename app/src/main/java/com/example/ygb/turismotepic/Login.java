@@ -32,6 +32,7 @@ public class Login extends Activity {
             public void onClick(View v){
                 Intent intent = new Intent(v.getContext(), Registro.class);
                 startActivity(intent);
+                finish();
             }
         });
 

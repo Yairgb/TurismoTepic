@@ -23,7 +23,8 @@ public class db_acompanying  extends SQLiteOpenHelper {
 
 
 
-
+    //--------------------------------Insert Table Query
+    public static final String SQL_INSERT_ENTRIES = "INSERT INTO `acompanying` (`id_accom`, `nombre`) VALUES (1, 'Solo'), (2, 'Pareja'), (3, 'Familia'), (4, 'Compañero de trabajo') ";
     //--------------------------------Delete Table Query
     public static final String SQL_DELETE_ENTRIES = " DROP TABLE IF EXIST " + TABLE_NAME;
     //--------------------------------Create Table Query

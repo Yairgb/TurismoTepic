@@ -1,8 +1,11 @@
 package com.example.ygb.turismotepic;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class Registro extends Activity {
 
@@ -10,5 +13,28 @@ public class Registro extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
+
+        Button btnGuardar = (Button) findViewById(R.id.btnGuardarReg);
+        Button btnCancelar = (Button) findViewById(R.id.btnCancelarReg);
+
+
+        btnGuardar.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public void onClick(View v){
+            Intent intent = new Intent(v.getContext(), Login.class);
+            startActivity(intent);
+            finish();
+        }
+    });
+
+
+        btnCancelar.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public void onClick(View v){
+            Intent intent = new Intent(v.getContext(), Login.class);
+            startActivity(intent);
+            finish();
+        }
+    });
     }
 }
