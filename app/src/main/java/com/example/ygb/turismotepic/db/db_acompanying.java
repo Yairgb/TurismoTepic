@@ -1,6 +1,7 @@
 package com.example.ygb.turismotepic.db;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -13,6 +14,8 @@ import android.content.Context;
         import android.database.sqlite.SQLiteDatabase;
         import android.database.sqlite.SQLiteOpenHelper;
         import android.util.Log;
+
+import java.util.ArrayList;
 
 public class db_acompanying  extends SQLiteOpenHelper {
     private static final String DATABASE_NAME="turismo.db";
@@ -52,5 +55,27 @@ public class db_acompanying  extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
 
+    }
+    public ArrayList<String> obtenerAcompañantes(){
+        ArrayList<String> lista=new ArrayList<>();
+        SQLiteDatabase db= this.getReadableDatabase();
+        db.beginTransaction();
+        try {
+            String selectQuery = "SELECT * FROM " + TABLE_NAME;
+            Cursor cursor = db.rawQuery(selectQuery, null);
+            if (cursor.getCount() > 0) {
+                while (cursor.moveToNext()) {
+                    String oname = cursor.getString(cursor.getColumnIndex(COLUMN_NAME_TIPO));
+                    lista.add(oname);
+                }
+            }
+            db.setTransactionSuccessful();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            db.endTransaction();
+            db.close();
+        }
+        return lista;
     }
 }

@@ -36,7 +36,7 @@
     <string name="title_mujer">Mujer</string>
     <string name="title_motivo">Motivo de viaje</string>
     <string name="title_origen">Estado de origen</string>
-    <string name="title_otro_origen">Pais de Origen</string>
+    <string name="title_otro_origen">Nacionalidad</string>
     <string name="title_acompañantes">¿Con quien(s) nos visita?</string>
     <string name="btn_guardar">Guardar</string>
 

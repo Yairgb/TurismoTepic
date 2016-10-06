@@ -37,11 +37,7 @@ public class db_init extends SQLiteOpenHelper {
         db.execSQL(db_origen.CREATE_TABLE);
         Log.i(TAG,db_origen.SQL_INSERT_ENTRIES);
         db.execSQL(db_origen.SQL_INSERT_ENTRIES);
-        //------------------------------------------------------------------------------------------
-        Log.i(TAG,db_otros_origenes.CREATE_TABLE);
-        db.execSQL(db_otros_origenes.CREATE_TABLE);
-        Log.i(TAG,db_otros_origenes.SQL_INSERT_ENTRIES);
-        db.execSQL(db_otros_origenes.SQL_INSERT_ENTRIES);
+
         //------------------------------------------------------------------------------------------
         Log.i(TAG,db_pois.CREATE_TABLE);
         db.execSQL(db_pois.CREATE_TABLE);
@@ -69,7 +65,6 @@ public class db_init extends SQLiteOpenHelper {
         db.execSQL(db_acompanying.SQL_DELETE_ENTRIES);
         db.execSQL(db_encuesta.SQL_DELETE_ENTRIES);
         db.execSQL(db_origen.SQL_DELETE_ENTRIES);
-        db.execSQL(db_otros_origenes.SQL_DELETE_ENTRIES);
         db.execSQL(db_pois.SQL_DELETE_ENTRIES);
         db.execSQL(db_rank.SQL_DELETE_ENTRIES);
         db.execSQL(db_usuarios.SQL_DELETE_ENTRIES);

@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
 
+import com.example.ygb.turismotepic.rc.rc_init;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -19,6 +21,8 @@ public class SplashScreen extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+
+        init_DB();
 
         TimerTask task = new TimerTask() {
             @Override
@@ -36,5 +40,11 @@ public class SplashScreen extends Activity {
         // Simulate a long loading process on application startup.
         Timer timer = new Timer();
         timer.schedule(task, SPLASH_SCREEN_DELAY);
+    }
+    private void init_DB() {
+        rc_init database = new rc_init(getApplicationContext());
+        database.open();
+        database.close();
+        //Log.i(TAG,"INIT_DB");
     }
 }
