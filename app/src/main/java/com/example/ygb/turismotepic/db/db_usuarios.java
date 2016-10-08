@@ -3,7 +3,9 @@ package com.example.ygb.turismotepic.db;
 /**
  * Created by LAB-DES-05 on 27/09/2016.
  */
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -40,8 +42,6 @@ public class db_usuarios extends SQLiteOpenHelper {
             + " text, "
             + COLUMN_NAME_ORIGEN
             + " text, "
-            + COLUMN_NAME_OTRO_ORIGEN
-            + " text, "
             + COLUMN_NAME_MOTIVO
             + " text, "
             + COLUMN_NAME_ACCOMPANYING
@@ -65,4 +65,5 @@ public class db_usuarios extends SQLiteOpenHelper {
         onCreate(db);
 
     }
+
 }

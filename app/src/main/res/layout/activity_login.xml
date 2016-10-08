@@ -15,29 +15,19 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="162dp"
-        android:id="@+id/etUsuario" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:layout_below="@+id/etUsuario"
-        android:layout_alignEnd="@+id/etUsuario"
+        android:layout_below="@+id/etUsuarioLog"
+        android:layout_alignEnd="@+id/etUsuarioLog"
         android:layout_marginTop="40dp"
-        android:id="@+id/etPass" />
+        android:id="@+id/etPassLog" />
 
     <TextView
         android:text="@string/title_usuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/etPass"
-        android:layout_alignStart="@+id/etUsuario"
+        android:layout_above="@+id/etPassLog"
+        android:layout_alignStart="@+id/etUsuarioLog"
         android:layout_marginBottom="53dp"
         android:id="@+id/tvTitleUsuario"
         android:textColor="@android:color/background_dark" />
@@ -57,8 +47,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvTitlePass"
         android:layout_marginTop="13dp"
-        android:layout_below="@+id/etUsuario"
-        android:layout_alignStart="@+id/etPass"
+        android:layout_below="@+id/etUsuarioLog"
+        android:layout_alignStart="@+id/etPassLog"
         android:textColor="@android:color/background_dark" />
 
     <CheckBox
@@ -67,11 +57,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/cbRemenberme"
         android:textSize="12sp"
-        android:layout_below="@+id/etPass"
-        android:layout_alignStart="@+id/etPass"
+        android:layout_below="@+id/etPassLog"
+        android:layout_alignStart="@+id/etPassLog"
         android:layout_toStartOf="@+id/tvRegistro"
         android:textColor="@android:color/background_dark"
-        android:layout_alignEnd="@+id/etPass" />
+        android:layout_alignEnd="@+id/etPassLog" />
 
     <TextView
         android:text="@string/btn_registrarse"
@@ -96,6 +86,16 @@
         android:id="@+id/ivLogo"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivBtnCerrar"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginTop="80dp"
+        android:id="@+id/etUsuarioLog"
+        android:layout_below="@+id/ivLogo"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
