@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -24,12 +25,14 @@ import com.example.ygb.turismotepic.db.db_usuarios;
 import com.example.ygb.turismotepic.rc.rc_usuarios;
 
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class Registro extends Activity {
     private String datoSexo;
-    private EditText edad,usuario, pass;
-    private TextView motivo, acompañantes, origen;
+    private EditText edad,usuario, pass,nombre;
+    private TextView motivo, acompañantes, origen,sexo;
     private  RadioButton rbHombre, rbMujer;
     private RadioGroup rdgGrupo;
     private rc_usuarios rcUsuarios;
@@ -44,12 +47,33 @@ public class Registro extends Activity {
         final db_usuarios dataUsuarios = new db_usuarios(this);
 
 
-        edad = (EditText) findViewById(R.id.etEdad);
+        Typeface roboto = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Bold.ttf");
+        //Typeface beba = Typeface.createFromAsset(getAssets(), "fonts/BebasKai-Regular.otf");
+        Typeface maven = Typeface.createFromAsset(getAssets(), "fonts/MavenPro-Regular.ttf");
+
+
+        sexo=(TextView) findViewById(R.id.tvTitleSexo);
+
+        nombre=(EditText)findViewById(R.id.etNombre);
         usuario = (EditText) findViewById(R.id.etUsuarioLog);
         pass = (EditText) findViewById(R.id.etPassLog);
+        edad = (EditText) findViewById(R.id.etEdad);
+
+        nombre.setTypeface(maven);
+        usuario.setTypeface(maven);
+        pass.setTypeface(maven);
+        edad.setTypeface(maven);
+
+
+
         motivo = (TextView) findViewById(R.id.tvTexto_spMotivo);
         acompañantes = (TextView) findViewById(R.id.tvTexto_spAcompa);
         origen = (TextView) findViewById(R.id.tvTexto_spOrigen);
+
+
+        /*motivo.setTypeface(maven);
+        acompañantes.setTypeface(maven);
+        origen.setTypeface(maven);*/
 
 
         rbHombre=(RadioButton)findViewById(R.id.rbHombre);
@@ -63,12 +87,23 @@ public class Registro extends Activity {
         final Spinner spinnerOrigen = (Spinner) findViewById(R.id.spOrigen);
 
 
+
+
+
         Button btnGuardar = (Button) findViewById(R.id.btnGuardarReg);
-        Button btnCancelar = (Button) findViewById(R.id.btnCancelarReg);
+        //Button btnCancelar = (Button) findViewById(R.id.btnCancelarReg);
         ImageButton btnEdad = (ImageButton) findViewById(R.id.ibtnEdad);
 
         ArrayAdapter<String> adaptadorMotivo = new ArrayAdapter<String>(this, R.layout.sp_motivo,R.id.tvTexto_spMotivo,listaMotivos);
         spinnerMotivo.setAdapter(adaptadorMotivo);
+
+        //Spinner spinner = (Spinner) findViewById(R.id.pioedittxt5);
+
+       /* ArrayAdapter<String> adaptadorMotivo = new ArrayAdapter<String>(this, R.layout.sp_motivo,R.id.tvTexto_spMotivo,listaMotivos);
+        adaptadorMotivo.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
+        spinnerMotivo.setAdapter(adaptadorMotivo);*/
+
+
 
         ArrayAdapter<String> adaptadorAcomp = new ArrayAdapter<String>(this, R.layout.sp_acompa,R.id.tvTexto_spAcompa,listaAcompa);
         spinnerCompañeros.setAdapter(adaptadorAcomp);
@@ -96,6 +131,7 @@ public class Registro extends Activity {
                 if(edad.getText().length() !=0 ||usuario.getText().length() !=0 ||pass.getText().length() !=0) {
                     final String Sexo = datoSexo;
                     final String Usuario = usuario.getText().toString();
+                    final String Nombre = nombre.getText().toString();
                     final String Pass = pass.getText().toString();
                     final String Edad = edad.getText().toString();
                     final String Motivo = spinnerMotivo.getSelectedItem().toString();
@@ -103,7 +139,7 @@ public class Registro extends Activity {
                     final String Origen = spinnerOrigen.getSelectedItem().toString();
                     rcUsuarios = new rc_usuarios(getApplicationContext());
                     rcUsuarios.open();
-                    rcUsuarios.insertarUsuarios(Usuario,Pass,Sexo,Motivo,Acompañantes,Origen,Edad);
+                    rcUsuarios.insertarUsuarios(Nombre,Usuario,Pass,Sexo,Motivo,Acompañantes,Origen,Edad);
                     rcUsuarios.close();
                     Toast.makeText(getApplicationContext(), "Registro Realizado", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(v.getContext(), Login.class);
@@ -116,14 +152,14 @@ public class Registro extends Activity {
         });
 
 
-        btnCancelar.setOnClickListener(new View.OnClickListener(){
+        /*btnCancelar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(v.getContext(), Login.class);
                 startActivity(intent);
                 finish();
             }
-        });
+        });*/
 
         btnEdad.setOnClickListener(new View.OnClickListener(){
             @Override

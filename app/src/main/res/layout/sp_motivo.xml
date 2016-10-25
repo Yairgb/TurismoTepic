@@ -5,6 +5,8 @@
 
     <TextView
         android:text="TextView"
+        android:textColor="#F28000"
+        android:padding="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tvTexto_spMotivo" />

@@ -6,7 +6,10 @@ import android.content.pm.ActivityInfo;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.ygb.turismotepic.rc.rc_init;
 
@@ -15,7 +18,7 @@ import java.util.TimerTask;
 
 public class SplashScreen extends Activity {
     // Set the duration of the splash screen
-    private static final long SPLASH_SCREEN_DELAY = 3000;
+    private static final long SPLASH_SCREEN_DELAY = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +27,19 @@ public class SplashScreen extends Activity {
 
         init_DB();
 
+
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
 
-                // Start the next activity
+               /* // Start the next activity
                 Intent mainIntent = new Intent().setClass(SplashScreen.this, Login.class);
                 startActivity(mainIntent);
+
+                // Close the activity so the user won't able to go back this
+                finish();*/
+                Intent Intent1 = new Intent().setClass(SplashScreen.this, SplashScreen2.class);
+                startActivity(Intent1);
 
                 // Close the activity so the user won't able to go back this
                 finish();

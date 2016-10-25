@@ -19,7 +19,8 @@ var World = {
 		World.markerList = [];
 
 		// start loading marker assets
-		World.markerDrawable_idle = new AR.ImageResource("assets/marker_idle.png");
+		//World.markerDrawable_idle = new AR.ImageResource("assets/marker_idle.png");
+		World.markerDrawable_idle = new AR.ImageResource("assets/flecha.png");
 		World.markerDrawable_selected = new AR.ImageResource("assets/marker_selected.png");
 
 		// loop through POI-information and create an AR.GeoObject (=Marker) per POI
@@ -98,19 +99,50 @@ var World = {
 
 	// request POI data
 	requestDataFromLocal: function requestDataFromLocalFn(centerPointLatitude, centerPointLongitude) {
-		var poisToCreate = 20;
+		var poisToCreate = 3;
 		var poiData = [];
-
-		for (var i = 0; i < poisToCreate; i++) {
+		/*for (var i = 0; i < poisToCreate; i++) {
 			poiData.push({
 				"id": (i + 1),
 				"longitude": (centerPointLongitude + (Math.random() / 5 - 0.1)),
 				"latitude": (centerPointLatitude + (Math.random() / 5 - 0.1)),
-				"description": ("This is the description of POI#" + (i + 1)),
+				"description": ("h:" + (centerPointLongitude + (Math.random() / 5 - 0.1))),
 				"altitude": "100.0",
 				"name": ("POI#" + (i + 1))
 			});
-		}
+		}*/
+		poiData.push({
+				"id": (4),
+				"longitude": (-104.848677),
+				"latitude": (21.484419),
+				"description": ("h:" + String(centerPointLatitude)),
+				"altitude": "100.0",
+				"name": ("Dentro")
+			});
+		poiData.push({
+				"id": (5),
+				"longitude": (-104.848881),
+				"latitude": (21.484506),
+				"description": ("h:" + String(centerPointLatitude)),
+				"altitude": "100.0",
+				"name": ("Guardia")
+			});
+		poiData.push({
+				"id": (6),
+				"longitude": (-104.848553),
+				"latitude": (21.484172),
+				"description": ("h:" + String(centerPointLatitude)),
+				"altitude": "100.0",
+				"name": ("Pérgola")
+			});
+		poiData.push({
+				"id": (7),
+				"longitude": (-104.848787),
+				"latitude": (21.484187),
+				"description": ("h:" + String(centerPointLatitude)),
+				"altitude": "100.0",
+				"name": ("Otro")
+			});
 		World.loadPoisFromJsonData(poiData);
 	}
 

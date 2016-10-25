@@ -15,6 +15,7 @@ public class db_usuarios extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     public static final String TABLE_NAME = "usuarios";
     public static final String COLUMN_NAME_ID = "id";
+    public static final String COLUMN_NAME_NAME = "nombre";
     public static final String COLUMN_NAME_USUARIO = "usuario";
     public static final String COLUMN_NAME_PASS = "pass";
     public static final String COLUMN_NAME_EDAD = "edad";
@@ -32,6 +33,8 @@ public class db_usuarios extends SQLiteOpenHelper {
             + TABLE_NAME + " ( "
             + COLUMN_NAME_ID
             + " integer primary key, "
+            + COLUMN_NAME_NAME
+            + " text, "
             + COLUMN_NAME_USUARIO
             + " text, "
             + COLUMN_NAME_PASS

@@ -89,9 +89,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_inicio) {
+        /*if (id == R.id.nav_inicio) {
             // Handle the camera action
-        } else if (id == R.id.nav_realidad_aumentada) {
+        } else */ //paso hacia abajo
+        if (id == R.id.nav_realidad_aumentada) {
             Intent intent = new Intent(this, Augmentedreality.class);
             startActivity(intent);
         } else if (id == R.id.nav_ruta) {

@@ -9,9 +9,72 @@
         android:text="@string/title_pois"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#000"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginStart="149dp"
         android:layout_marginTop="18dp"
         android:id="@+id/tvTitleLugares" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linearLayout1">
+
+        <RelativeLayout
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageButton
+                android:id="@+id/museo"
+                android:layout_width="53dp"
+                android:layout_height="53dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/museos"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="#000"
+                android:layout_below="@id/museo"
+                android:text="@string/tv_museos"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="120dp"
+            android:layout_height="75dp">
+
+            <ImageButton
+                android:id="@+id/monumentos"
+                android:layout_centerHorizontal="true"
+                android:layout_width="53dp"
+                android:layout_height="53dp"
+                android:background="@drawable/monumentos"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="#000"
+                android:layout_below="@id/monumentos"
+                android:text="@string/tv_monumentos"
+                />
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+
+
+
 </RelativeLayout>

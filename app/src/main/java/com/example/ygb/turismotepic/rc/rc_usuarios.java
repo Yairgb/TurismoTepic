@@ -27,10 +27,10 @@ public class rc_usuarios {
     public void read(){ database = dbUsuarios.getReadableDatabase(); }
     /*------------------------------- Public Methods for RC_USER----------------------------------*/
 
-    public void insertarUsuarios (String Usuario, String Pass, String Sexo, String Motivo, String Origen, String Acompañantes, String Edad){
+    public void insertarUsuarios (String Nombre,String Usuario, String Pass, String Sexo, String Motivo, String Origen, String Acompañantes, String Edad){
         SQLiteDatabase db;
 
-        database.insert(TABLE_NAME, null,generarContentValues(Usuario,Pass, Sexo, Motivo, Origen, Acompañantes,Edad));
+        database.insert(TABLE_NAME, null,generarContentValues(Nombre,Usuario,Pass, Sexo, Motivo, Origen, Acompañantes,Edad));
     }
 
     public String checarUsuario(String usuario, String pass){
@@ -45,8 +45,9 @@ public class rc_usuarios {
         return resultado;
     }
 
-    public ContentValues generarContentValues(String Usuario, String Pass, String Sexo, String Motivo, String Origen, String Acompañantes, String Edad){
+    public ContentValues generarContentValues(String Nombre, String Usuario, String Pass, String Sexo, String Motivo, String Origen, String Acompañantes, String Edad){
         ContentValues valores = new ContentValues();
+        valores.put(COLUMN_NAME_NAME,Nombre);
         valores.put(COLUMN_NAME_USUARIO,Usuario);
         valores.put(COLUMN_NAME_PASS,Pass);
         valores.put(COLUMN_NAME_EDAD,Edad);

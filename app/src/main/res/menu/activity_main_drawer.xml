@@ -1,32 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_inicio"
-            android:icon="@mipmap/ic_dashboard_black"
-            android:title="Inicio" />
-        <item
             android:id="@+id/nav_realidad_aumentada"
-            android:icon="@mipmap/ic_ar"
-            android:title="Realidad Aumentada" />
+            android:icon="@mipmap/camara"
+            android:title="@string/menu_ar" />
         <item
             android:id="@+id/nav_ruta"
-            android:icon="@mipmap/ic_ruta"
-            android:title="Ir a POI's" />
+            android:icon="@mipmap/poi"
+            android:title="@string/menu_poi" />
         <item
             android:id="@+id/nav_encuesta"
-            android:icon="@mipmap/ic_assignment_black"
-            android:title="Encuesta" />
+            android:icon="@mipmap/enc"
+            android:title="@string/menu_enc" />
     </group>
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@mipmap/salir"
+        android:title="Salir" />
 
-    <item android:title="Cerrar Sesion">
-        <menu>
-            <item
-                android:id="@+id/nav_logout"
-                android:icon="@mipmap/ic_logout"
-                android:title="Salir" />
-        </menu>
-    </item>
 
 </menu>

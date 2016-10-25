@@ -5,27 +5,20 @@
     android:id="@+id/activity_registro"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/fregistro"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.ygb.turismotepic.Registro">
 
-    <TextView
-        android:text="@string/title_registro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvTitleRegistro"
-        android:textStyle="normal|bold"
-        android:textSize="18sp"
-        android:textColor="@android:color/background_dark"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
+        android:layout_marginTop="92dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true">
 
         <LinearLayout
@@ -38,82 +31,55 @@
             android:weightSum="1">
 
             <TextView
-                android:text="@string/title_sexo"
+                android:text="@string/title_nombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="21dp"
-                android:id="@+id/tvTitleSexo"
-                android:layout_below="@+id/etPassLog"
-                android:layout_alignParentStart="true"
-                android:textStyle="normal|bold" />
+                android:id="@+id/tvTitleNombre"
+                android:textStyle="normal|bold"
+                android:textSize="15dp"
+                android:textColor="#442a19"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
 
-            <RadioGroup
+            <EditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal"
-                android:id="@+id/RGB">
-
-                <RadioButton
-                    android:text="@string/title_mujer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rbMujer" />
-
-                <RadioButton
-                    android:text="@string/title_hombre"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/rbHombre"
-                    android:gravity="center_vertical|center_horizontal" />
-            </RadioGroup>
-
-            <TextView
-                android:text="@string/title_edad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvTitleCumpleaños"
-                android:layout_marginTop="18dp"
-                android:layout_below="@+id/lineaSexo"
+                android:layout_height="35dp"
+                android:textColor="#ea5b0c"
+                android:textSize="16dp"
+                android:textColorHint="#efb18f"
+                android:paddingLeft="10dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/estilos"
+                android:hint="@string/title_nombre"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/etNombre"
+                android:layout_below="@+id/tvTitleNombre"
                 android:layout_alignParentStart="true"
-                android:textStyle="normal|bold" />
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tvTitleCumpleaños"
-                android:layout_alignParentStart="true"
-                android:id="@+id/lineaEdad">
-
-                <EditText
-                    android:layout_width="305dp"
-                    android:layout_height="wrap_content"
-                    android:inputType="date"
-                    android:ems="10"
-                    android:id="@+id/etEdad" />
-
-                <ImageButton
-                    android:layout_width="match_parent"
-                    android:layout_height="42dp"
-                    android:src="@android:drawable/ic_menu_today"
-                    android:id="@+id/ibtnEdad" />
-
-            </LinearLayout>
+                android:layout_alignParentEnd="true" />
 
             <TextView
                 android:text="@string/title_usuario"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="13dp"
                 android:id="@+id/tvTitleUsuario"
                 android:layout_below="@+id/tvTitleRegistro"
                 android:layout_alignParentStart="true"
-                android:textStyle="normal|bold" />
+                android:textStyle="normal|bold"
+                android:textSize="15dp"
+                android:textColor="#442a19" />
 
             <EditText
-                android:layout_width="385dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:textColor="#ea5b0c"
+                android:textSize="16dp"
+                android:paddingLeft="10dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/estilos"
+                android:textColorHint="#efb18f"
+                android:hint="@string/title_usuario"
                 android:inputType="textPersonName"
                 android:ems="10"
                 android:id="@+id/etUsuarioLog"
@@ -129,16 +95,119 @@
                 android:id="@+id/tvTitlePass"
                 android:layout_below="@+id/etUsuarioLog"
                 android:layout_alignParentStart="true"
-                android:textStyle="normal|bold" />
+                android:textStyle="normal|bold"
+                android:textSize="15dp"
+                android:textColor="#442a19" />
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
+                android:textColor="#ea5b0c"
+                android:textSize="16dp"
+                android:layout_marginTop="12dp"
+                android:paddingLeft="10dp"
+                android:textColorHint="#efb18f"
+                android:background="@drawable/estilos"
+                android:hint="@string/title_pass"
                 android:ems="10"
                 android:id="@+id/etPassLog"
                 android:layout_below="@+id/tvTitlePass"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true" />
+                android:layout_alignParentEnd="true"
+                android:inputType="textWebPassword" />
+
+            <TextView
+                android:text="@string/title_sexo"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="21dp"
+                android:id="@+id/tvTitleSexo"
+                android:layout_below="@+id/etPassLog"
+                android:layout_alignParentStart="true"
+                android:textStyle="normal|bold"
+                android:textSize="15dp"
+                android:textColor="#442a19"
+                android:layout_weight="0.29" />
+
+            <RadioGroup
+                android:layout_width="207dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="40dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:checkedButton="@mipmap/rico"
+                android:gravity="center_vertical|center_horizontal"
+                android:id="@+id/RGB"
+                android:layout_weight="0.15">
+
+                <RadioButton
+                    android:text="@string/title_mujer"
+                    android:textSize="12dp"
+                    android:textColor="#878786"
+                    android:button="@drawable/custom_radio"
+                    android:layout_width="wrap_content"
+                    android:paddingLeft="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rbMujer" />
+
+                <RadioButton
+                    android:text="@string/title_hombre"
+                    android:textSize="12dp"
+                    android:paddingLeft="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:textColor="#878786"
+                    android:button="@drawable/custom_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rbHombre"
+                    android:gravity="center_vertical|center_horizontal" />
+            </RadioGroup>
+
+            <TextView
+                android:text="@string/title_edad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvTitleCumpleaños"
+                android:layout_marginTop="18dp"
+                android:layout_below="@+id/lineaSexo"
+                android:layout_alignParentStart="true"
+                android:textStyle="normal|bold"
+                android:textSize="15dp"
+                android:textColor="#442a19" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvTitleCumpleaños"
+                android:layout_alignParentStart="true"
+                android:id="@+id/lineaEdad"
+                android:weightSum="1">
+
+                <EditText
+                    android:layout_width="254dp"
+                    android:hint="@string/title_edad"
+                    android:layout_marginTop="12dp"
+                    android:textColor="#ea5b0c"
+                    android:textColorHint="#efb18f"
+                    android:textSize="16dp"
+                    android:paddingLeft="10dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/estilos"
+                    android:inputType="date"
+                    android:ems="10"
+                    android:id="@+id/etEdad"
+                    android:layout_weight="0.75" />
+
+                <ImageButton
+                    android:layout_width="32dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="12dp"
+                    android:src="@mipmap/edad"
+                    android:id="@+id/ibtnEdad" />
+
+            </LinearLayout>
 
             <TextView
                 android:text="@string/title_origen"
@@ -148,14 +217,19 @@
                 android:layout_below="@+id/lineaEdad"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="21dp"
-                android:textStyle="normal|bold" />
+                android:textStyle="normal|bold"
+                android:textSize="15dp"
+                android:textColor="#442a19" />
 
             <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/spOrigen"
+                android:layout_height="35dp"
+                android:textColor="#ea5b0c"
+                android:textSize="16dp"
+                android:layout_below="@+id/tvTitleOrigen"
+                android:background="@drawable/estilos"
                 android:layout_alignTop="@+id/tvTitleOrigen"
-                android:layout_alignParentStart="true"
                 android:layout_marginTop="16dp" />
 
             <TextView
@@ -165,28 +239,40 @@
                 android:layout_below="@+id/spOtroOrigen"
                 android:layout_marginTop="26dp"
                 android:text="@string/title_motivo"
-                android:textStyle="normal|bold" />
+                android:textStyle="normal|bold"
+                android:textSize="15dp"
+                android:textColor="#442a19" />
 
             <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
+                android:textColor="#ea5b0c"
+                android:textSize="16dp"
+                android:background="@drawable/estilos"
                 android:id="@+id/spMotivo"
+                android:layout_marginTop="12dp"
                 android:layout_below="@+id/tvTitleMotivo"
                 android:layout_alignParentStart="true" />
 
             <TextView
                 android:text="@string/title_acompañantes"
+                android:id="@+id/tvTitleAcompanantes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentStart="true"
-                android:id="@+id/tvTitleAcompanantes"
-                android:paddingTop="21dp"
-                android:textStyle="normal|bold" />
+                android:layout_below="@+id/spOtroOrigen"
+                android:layout_marginTop="26dp"
+                android:textStyle="normal|bold"
+                android:textSize="15dp"
+                android:textColor="#442a19"
+
+                />
 
             <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
+                android:textColor="#ea5b0c"
+                android:textSize="16dp"
+                android:background="@drawable/estilos"
                 android:id="@+id/spCompaneros"
                 android:layout_alignTop="@+id/tvTitleAcompanantes"
                 android:layout_alignParentStart="true"
@@ -194,31 +280,49 @@
 
             <LinearLayout
                 android:orientation="horizontal"
-                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:layout_marginBottom="15dp"
                 android:layout_marginTop="15dp">
 
                 <Button
-                    android:text="@string/btn_cancelar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/btnCancelarReg"
-                    android:layout_alignParentBottom="true"
-                    android:layout_toEndOf="@+id/tvTitleCumpleaños" />
-
-                <Button
-                    android:text="@string/btn_guardar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/btnGuardarReg"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentEnd="true"
                     android:layout_weight="1"
+                    android:background="@mipmap/registrar"
                     android:layout_marginStart="20dp" />
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_registro"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+        android:textSize="18dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        android:drawablePadding="6dp"
+        android:gravity="center_vertical"
+        android:drawableLeft="@mipmap/enc"
+        android:layout_alignTop="@+id/rico"
+        android:layout_toStartOf="@+id/rico" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/rico"
+        android:layout_marginEnd="22dp"
+        android:id="@+id/rico"
+        android:layout_marginTop="58dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
