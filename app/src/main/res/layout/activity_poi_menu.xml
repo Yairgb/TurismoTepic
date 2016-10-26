@@ -6,21 +6,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:text="@string/title_pois"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:gravity="bottom|center_horizontal"
-        android:paddingBottom="10dp"
-        android:textSize="16dp"
-        android:layout_height="50dp"
-        android:textColor="#FFF"
-        android:id="@+id/tvTitleLugares" />
+        android:layout_height="50dp"></LinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/poi"
+        android:layout_marginLeft="50dp"
+        android:layout_toLeftOf="@id/tvTitleLugares"
+        />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="80dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/linearLayout1">
 

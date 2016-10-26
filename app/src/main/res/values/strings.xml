@@ -57,12 +57,15 @@
     <string name="tv_hoteles">Hoteles</string>
     <string name="tv_bancos">Bancos</string>
     <string name="tv_restaurantes">Restaurantes</string>
-    <string name="tv_farmacia">Farmacia</string>
+    <string name="tv_farmacias">Farmacias</string>
     <string name="tv_transporte">Transporte</string>
     <string name="tv_plazas">Plazas comerciales</string>
     <string name="tv_tiendas">Tiendas</string>
     <string name="tv_parques">Parques</string>
     <string name="tv_otros">Otros</string>
+
+    <string name="title_activity_poi">poi</string>
+    <string name="title_activity_poi_menu">PoiMenu</string>
 
 
 </resources>

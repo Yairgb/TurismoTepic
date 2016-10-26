@@ -56,11 +56,10 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
             android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            >
+            android:theme="@style/AppTheme.NoActionBar">
 
             <!--
             <intent-filter>
@@ -88,10 +87,9 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 />
             </intent-filter>
-            </activity>
+        </activity>
         <activity
             android:name=".Login"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -99,10 +97,9 @@
             android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar.Fullscreen" />
         <activity
             android:name=".Registro"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
-            />
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" />
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -111,7 +108,11 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
+        <activity
+            android:name=".PoiMenu"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" >
 
+        </activity>
     </application>
 
 </manifest>
