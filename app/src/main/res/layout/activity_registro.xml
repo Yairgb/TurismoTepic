@@ -30,33 +30,6 @@
             android:layout_marginTop="21dp"
             android:weightSum="1">
 
-            <TextView
-                android:text="@string/title_nombre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvTitleNombre"
-                android:textStyle="normal|bold"
-                android:textSize="15dp"
-                android:textColor="#442a19"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:textColor="#ea5b0c"
-                android:textSize="16dp"
-                android:textColorHint="#efb18f"
-                android:paddingLeft="10dp"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/estilos"
-                android:hint="@string/title_nombre"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:id="@+id/etNombre"
-                android:layout_below="@+id/tvTitleNombre"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true" />
 
             <TextView
                 android:text="@string/title_usuario"

@@ -20,8 +20,11 @@ public class db_init extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        Log.i(TAG,"INICINNADO.......");
         Log.i(TAG,db_usuarios.CREATE_TABLE);
         db.execSQL(db_usuarios.CREATE_TABLE);
+        Log.i(TAG,db_usuarios.SQL_INSERT_ENTRIES);
+        db.execSQL(db_usuarios.SQL_INSERT_ENTRIES);
         //------------------------------------------------------------------------------------------
         Log.i(TAG,db_motivo.CREATE_TABLE);
         db.execSQL(db_motivo.CREATE_TABLE);
@@ -41,6 +44,8 @@ public class db_init extends SQLiteOpenHelper {
         //------------------------------------------------------------------------------------------
         Log.i(TAG,db_pois.CREATE_TABLE);
         db.execSQL(db_pois.CREATE_TABLE);
+        Log.i(TAG,db_pois.SQL_INSERT_ENTRIES);
+        db.execSQL(db_pois.SQL_INSERT_ENTRIES);
         //------------------------------------------------------------------------------------------
         Log.i(TAG,db_rank.CREATE_TABLE);
         db.execSQL(db_rank.CREATE_TABLE);
@@ -53,7 +58,7 @@ public class db_init extends SQLiteOpenHelper {
         Log.i(TAG,db_acompanying.SQL_INSERT_ENTRIES);
         db.execSQL(db_acompanying.SQL_INSERT_ENTRIES);
         //------------------------------------------------------------------------------------------
-
+Log.i(TAG,"Finalizar....");
     }
 
     @Override

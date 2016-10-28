@@ -19,7 +19,8 @@ public class db_categorias extends SQLiteOpenHelper {
 
 
     //--------------------------------Insert Table Query
-    public static final String SQL_INSERT_ENTRIES = "INSERT INTO `categorias` (`id_categoria`, `Nombre`) VALUES (1, 'Hotel'), (2, 'Restaurant'), (3, 'Monumento'), (4, 'Museo'), (5, 'Parque'), (6, 'Banco'), (7, 'Farmacia'), (8, 'Restaurant'), (9, 'Tienda'), (10, 'Plaza Comercial'), (11, 'Otro') ";
+    public static final String SQL_INSERT_ENTRIES = "INSERT INTO `categorias` (`id_categoria`, `Nombre`) VALUES (1, 'Hotel'), (2, 'Restaurant'), (3, 'Monumento'), (4, 'Museo'), (5, 'Banco'), (6, 'Farmacia'), " +
+            "(7, 'Tienda'), (8, 'Plaza comercial'), (9, 'Parques'), (10, 'Otros')";
     //--------------------------------Delete Table Query
     public static final String SQL_DELETE_ENTRIES = " DROP TABLE IF EXIST " + TABLE_NAME;
     //--------------------------------Create Table Query

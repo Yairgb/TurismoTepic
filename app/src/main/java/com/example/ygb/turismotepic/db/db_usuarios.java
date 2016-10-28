@@ -15,7 +15,6 @@ public class db_usuarios extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     public static final String TABLE_NAME = "usuarios";
     public static final String COLUMN_NAME_ID = "id";
-    public static final String COLUMN_NAME_NAME = "nombre";
     public static final String COLUMN_NAME_USUARIO = "usuario";
     public static final String COLUMN_NAME_PASS = "pass";
     public static final String COLUMN_NAME_EDAD = "edad";
@@ -25,7 +24,8 @@ public class db_usuarios extends SQLiteOpenHelper {
     public static final String COLUMN_NAME_MOTIVO = "motivo";
     public static final String COLUMN_NAME_ACCOMPANYING = "accompanying";
 
-
+    //--------------------------------Insert Table Query
+    public static final String SQL_INSERT_ENTRIES = "INSERT INTO `usuarios` (`id`, `usuario`, `pass`, `edad`, `sexo`, `origen`, `motivo`, `accompanying`) VALUES (1, 'edwin','123','24','Hombre','Nayarit','Placer','Familia')";
     //--------------------------------Delete Table Query
     public static final String SQL_DELETE_ENTRIES = " DROP TABLE IF EXIST " + TABLE_NAME;
     //--------------------------------Create Table Query
@@ -33,8 +33,6 @@ public class db_usuarios extends SQLiteOpenHelper {
             + TABLE_NAME + " ( "
             + COLUMN_NAME_ID
             + " integer primary key, "
-            + COLUMN_NAME_NAME
-            + " text, "
             + COLUMN_NAME_USUARIO
             + " text, "
             + COLUMN_NAME_PASS

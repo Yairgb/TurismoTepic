@@ -43,6 +43,7 @@
     <string name="title_acompañantes">¿Con quien(es) nos visita?</string>
     <string name="btn_guardar">Guardar</string>
     <string name="title_splash">Bienvenido</string>
+    <string name="title_categoria">Categoría</string>
 
     <string name="menu_ar">REALIDAD AUMENTADA</string>
     <string name="menu_poi">PUNTOS DE INTERÉS</string>
@@ -63,9 +64,6 @@
     <string name="tv_tiendas">Tiendas</string>
     <string name="tv_parques">Parques</string>
     <string name="tv_otros">Otros</string>
-
-    <string name="title_activity_poi">poi</string>
-    <string name="title_activity_poi_menu">PoiMenu</string>
 
 
 </resources>

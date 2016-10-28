@@ -31,7 +31,7 @@ import java.util.ArrayList;
 
 public class Registro extends Activity {
     private String datoSexo;
-    private EditText edad,usuario, pass,nombre;
+    private EditText edad,usuario, pass;
     private TextView motivo, acompañantes, origen,sexo;
     private  RadioButton rbHombre, rbMujer;
     private RadioGroup rdgGrupo;
@@ -54,12 +54,10 @@ public class Registro extends Activity {
 
         sexo=(TextView) findViewById(R.id.tvTitleSexo);
 
-        nombre=(EditText)findViewById(R.id.etNombre);
         usuario = (EditText) findViewById(R.id.etUsuarioLog);
         pass = (EditText) findViewById(R.id.etPassLog);
         edad = (EditText) findViewById(R.id.etEdad);
 
-        nombre.setTypeface(maven);
         usuario.setTypeface(maven);
         pass.setTypeface(maven);
         edad.setTypeface(maven);
@@ -131,7 +129,6 @@ public class Registro extends Activity {
                 if(edad.getText().length() !=0 ||usuario.getText().length() !=0 ||pass.getText().length() !=0) {
                     final String Sexo = datoSexo;
                     final String Usuario = usuario.getText().toString();
-                    final String Nombre = nombre.getText().toString();
                     final String Pass = pass.getText().toString();
                     final String Edad = edad.getText().toString();
                     final String Motivo = spinnerMotivo.getSelectedItem().toString();
@@ -139,7 +136,7 @@ public class Registro extends Activity {
                     final String Origen = spinnerOrigen.getSelectedItem().toString();
                     rcUsuarios = new rc_usuarios(getApplicationContext());
                     rcUsuarios.open();
-                    rcUsuarios.insertarUsuarios(Nombre,Usuario,Pass,Sexo,Motivo,Acompañantes,Origen,Edad);
+                    rcUsuarios.insertarUsuarios(Usuario,Pass,Sexo,Motivo,Acompañantes,Origen,Edad);
                     rcUsuarios.close();
                     Toast.makeText(getApplicationContext(), "Registro Realizado", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(v.getContext(), Login.class);

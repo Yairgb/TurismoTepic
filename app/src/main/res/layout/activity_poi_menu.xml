@@ -8,20 +8,35 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"></LinearLayout>
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/poi"
-        android:layout_marginLeft="50dp"
-        android:layout_toLeftOf="@id/tvTitleLugares"
-        />
+        android:layout_height="50dp"
+        android:gravity="bottom|center_horizontal"
+        android:paddingBottom="10dp"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/poi"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:textColor="#FFF"
+            android:text="@string/title_pois"
+            />
+
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="70dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/linearLayout1">
 
@@ -188,19 +203,19 @@
             android:layout_height="85dp">
             >
             <ImageButton
-                android:id="@+id/transporte"
+                android:id="@+id/parques"
                 android:layout_width="53dp"
                 android:layout_height="53dp"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/transporte"
+                android:background="@drawable/parques"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:textColor="#000"
-                android:layout_below="@id/transporte"
-                android:text="@string/tv_transporte"
+                android:layout_below="@id/parques"
+                android:text="@string/tv_parques"
                 />
         </RelativeLayout>
         <RelativeLayout
@@ -234,7 +249,26 @@
         android:layout_marginTop="15dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/linearLayout5">
-
+        <RelativeLayout
+            android:layout_width="120dp"
+            android:layout_height="85dp">
+            <ImageButton
+                android:id="@+id/tiendas"
+                android:layout_centerHorizontal="true"
+                android:layout_width="53dp"
+                android:layout_height="53dp"
+                android:background="@drawable/mall"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal"
+                android:textColor="#000"
+                android:layout_below="@id/tiendas"
+                android:text="@string/tv_tiendas"
+                />
+        </RelativeLayout>
         <RelativeLayout
             android:layout_width="120dp"
             android:layout_height="85dp">
