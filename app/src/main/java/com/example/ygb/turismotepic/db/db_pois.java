@@ -27,56 +27,61 @@ public class db_pois extends SQLiteOpenHelper {
     public static final String COLUMN_NAME_CALF = "calificacion";
     public static final String COLUMN_NAME_COSTO = "costo";
     public static final String COLUMN_NAME_COSTOAPROX = "costo_aprox";
+    public static final String COLUMN_NAME_FOTO = "foto";
 
 
     //--------------------------------Insert Table Query
-    public static final String SQL_INSERT_ENTRIES = "INSERT INTO `pois` (`id_poi`, `id_categoria`, `nombre`,`descripcion_larga`,`latitud`, `longitud`, `horario`, `calificacion`, `costo`) " +
+    public static final String SQL_INSERT_ENTRIES = "INSERT INTO `pois` (`id_poi`, `id_categoria`, `nombre`,`descripcion_larga`,`latitud`, `longitud`, `horario`, `calificacion`, `costo`, `foto`) " +
             "VALUES " +
-            "(1,3,'Catedral ,'En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, " +
-            "un templo católico correspondiente a la diócesis de la zona. Considerada como la Iglesia Madre; preside las celebraciones litúrgicas, " +
-            "brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5105914','-104.8906753')" +
+            "(01,3,'Catedral ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5105914','-104.8906753','8 a.m. a 8p.m.','1','499','f01_01.jpg'),"+
+            "(02,1,'Hotel Fray Junípero Serra ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5090809','-104.8919096','9 a.m. a 8p.m.','3','176','f02_01.jpg'),"+
+            "(03,4,'Casa Museo de Juan Escutia ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5095973','-104.8907031','10 a.m. a 8p.m.','3','368','f03_01.jpg'),"+
+            "(04,4,'Casa Mueso de Amado Nervo ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5105914','-104.8906753','11 a.m. a 8p.m.','5','133','f04_01.jpg'),"+
+            "(05,3,'Pérgola (Plaza principal) ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.512184','-104.892335','12 a.m. a 8p.m.','3.5','273','f05_01.jpg'),"+
+            "(06,3,'Fuente principal (Plaza principal) ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.512084','-104.892021','13 a.m. a 8p.m.','4','462','f06_01.jpg'),"+
+            "(07,3,'Fuente de delfín (Plaza principal) ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.512256','-104.892497','14 a.m. a 8p.m.','5','51','f07_01.jpg'),"+
+            "(08,4,'Escuela Superior de Música ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5086155','-104.8904644','15 a.m. a 8p.m.','1.5','265','f08_01.jpg'),"+
+            "(09,4,'Casa Fenelón ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5095587','-104.8906283','16 a.m. a 8p.m.','2.5','271','f09_01.jpg'),"+
+            "(10,3,'Busto de Carranza (Plaza antigua) ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5095587','-104.8906283','17 a.m. a 8p.m.','3.5','260','f10_01.jpg'),"+
+            "(11,4,'Museo Regional INAH','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5099214','-104.892416','18 a.m. a 8p.m.','1.5','337','f11_01.jpg'),"+
+            "(12,10,'Oficinas regionales del INAH ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5086601','-104.8910246','19 a.m. a 8p.m.','2.5','221','f12_01.jpg'),"+
+            "(13,10,'Centro Estatal de Culturas Populares e Indígenas (CECUPI) ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5101323','-104.8923121','20 a.m. a 8p.m.','3','319','f13_01.jpg'),"+
+            "(14,10,'Centro de Arte Contemporáneo del Bicentenario Emilia Ortíz ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5107362','-104.8920432','21 a.m. a 8p.m.','4','281','f14_01.jpg'),"+
+            "(15,9,'El cerro de la Cruz ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.533983','-104.883625','22 a.m. a 8p.m.','5','486','f15_01.jpg'),"+
+            "(16,9,'Parque La Loma ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.4888419','-104.8944705','23 a.m. a 8p.m.','3','152','f16_01.jpg'),"+
+            "(17,9,'La Alameda ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5097163','-104.9017046','24 a.m. a 8p.m.','5','35','f17_01.jpg'),"+
+            "(18,10,'Estadio Arena Cora ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.4923501','-104.8029556','25 a.m. a 8p.m.','4','145','f18_01.jpg'),"+
+            "(19,10,'Palacio de Gobierno ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5081358','-104.891283','26 a.m. a 8p.m.','1','445','f19_01.jpg'),"+
+            "(20,9,'Plaza Bicentenario ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5081358','-104.891283','27 a.m. a 8p.m.','3','405','f20_01.jpg'),"+
+            "(21,8,'Plaza Forum ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.4913098','-104.8666708','28 a.m. a 8p.m.','3','222','f21_01.jpg'),"+
+            "(22,10,'Central de Autobuses de Tepic ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.4986792','-104.8867183','29 a.m. a 8p.m.','5','94','f22_01.jpg'),"+
+            "(23,5,'Banco Santander Catedral ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5118992','-104.8915184','30 a.m. a 8p.m.','3.5','360','f23_01.jpg'),"+
+            "(24,5,'Banco BBVA Bancomer ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5105152','-104.8925196','31 a.m. a 8p.m.','4','430','f24_01.jpg'),"+
+            "(25,5,'Banco Banamex ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5099322','-104.8943637','32 a.m. a 8p.m.','5','32','f25_01.jpg'),"+
+            "(26,5,'Banco Banorte ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.512839','-104.8928428','33 a.m. a 8p.m.','1.5','337','f26_01.jpg'),"+
+            "(27,5,'Banco HSBC ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5124048','-104.8930735','34 a.m. a 8p.m.','2.5','434','f27_01.jpg'),"+
+            "(28,5,'Scotiabank ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5109467','-104.892335','35 a.m. a 8p.m.','3.5','178','f28_01.jpg'),"+
+            "(29,7,'Liverpool ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5102987','-104.8921414','36 a.m. a 8p.m.','1.5','451','f29_01.jpg'),"+
+            "(30,7,'Oxxo ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5114953','-104.8927524','37 a.m. a 8p.m.','2.5','210','f30_01.jpg'),"+
+            "(31,7,'Salinas & Rocha ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5114217','-104.8927966','38 a.m. a 8p.m.','3','12','f31_01.jpg'),"+
+            "(32,7,'Modatelas ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5111415','-104.893177','39 a.m. a 8p.m.','4','71','f32_01.jpg'),"+
+            "(33,7,'Coppel Canada México ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5108047','-104.8926759','40 a.m. a 8p.m.','5','71','f33_01.jpg'),"+
+            "(34,6,'Farmacias Benavides ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5108646','-104.8920871','41 a.m. a 8p.m.','3','455','f34_01.jpg'),"+
+            "(35,6,'Farmacias El Fénix ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5109383','-104.8919626','42 a.m. a 8p.m.','5','360','f35_01.jpg'),"+
+            "(36,6,'Farmacias Sufacen ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5097953','-104.8936898','43 a.m. a 8p.m.','4','430','f36_01.jpg'),"+
+            "(37,2,'Tower Pizzas ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5099182','-104.8922729','44 a.m. a 8p.m.','1','175','f37_01.jpg'),"+
+            "(38,2,'KFC ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5119189','-104.8935664','45 a.m. a 8p.m.','3','232','f38_01.jpg'),"+
+            "(39,2,'Fresh Salads ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.511517','-104.8918196','46 a.m. a 8p.m.','3','229','f39_01.jpg'),"+
+            "(40,2,'Casa Tigre ','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5108488','-104.8915351','47 a.m. a 8p.m.','5','298','f40_01.jpg'),"+
+            "(41,10,'Sanitarios','En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.51254','-104.893064','48 a.m. a 8p.m.','3.5','249','f41_01.jpg')";
 
-            "(1,3,'Catedral ,'En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.','21.5105914','-104.8906753'),"+
-            "(2,1,'Hotel Fray Junípero Serra ,'','21.5090809','-104.8919096'),"+
-            "(3,4,'Casa Museo de Juan Escutia ,'','21.5095973','-104.8907031'),"+
-            "(4,4,'Casa Mueso de Amado Nervo ,'','21.5105914','-104.8906753'),"+
-            "(5,3,'Pérgola (Plaza principal) ,'','21.512184','-104.892335'),"+
-            "(6,3,'Fuente principal (Plaza principal) ,'','21.512084','-104.892021'),"+
-            "(7,3,'Fuente de delfín (Plaza principal) ,'','21.512256','-104.892497'),"+
-            "(8,4,'Escuela Superior de Música ,'','21.5086155','-104.8904644'),"+
-            "(9,4,'Casa Fenelón ,'','21.5095587','-104.8906283'),"+
-            "(10,3,'Busto de Carranza (Plaza antigua) ,'','21.5095587','-104.8906283'),"+
-            "(11,4,'Museo Regional INAH,'','21.5099214','-104.892416'),"+
-            "(12,10,'Oficinas regionales del INAH ,'','21.5086601','-104.8910246'),"+
-            "(13,10,'Centro Estatal de Culturas Populares e Indígenas (CECUPI) ,'','21.5101323','-104.8923121'),"+
-            "(14,10,'Centro de Arte Contemporáneo del Bicentenario Emilia Ortíz ,'','21.5107362','-104.8920432'),"+
-            "(15,9,'El cerro de la Cruz ,'','21.533983','-104.883625'),"+
-            "(16,9,'Parque La Loma ,'','21.4888419','-104.8944705'),"+
-            "(17,9,'La Alameda ,'','21.5097163','-104.9017046'),"+
-            "(18,10,'Estadio Arena Cora ,'','21.4923501','-104.8029556'),"+
-            "(19,10,'Palacio de Gobierno ,'','21.5081358','-104.891283'),"+
-            "(20,9,'Plaza Bicentenario ,'','21.5081358','-104.891283'),"+
-            "(21,8,'Plaza Forum ,'','21.4913098','-104.8666708'),"+
-            "(22,10,'Central de Autobuses de Tepic ,'','21.4986792','-104.8867183'),"+
-            "(23,5,'Banco Santander Catedral ,'','21.5118992','-104.8915184'),"+
-            "(24,5,'Banco BBVA Bancomer ,'','21.5105152','-104.8925196'),"+
-            "(25,5,'Banco Banamex ,'','21.5099322','-104.8943637'),"+
-            "(26,5,'Banco Banorte ,'','21.512839','-104.8928428'),"+
-            "(27,5,'Banco HSBC ,'','21.5124048','-104.8930735'),"+
-            "(28,5,'Scotiabank ,'','21.5109467','-104.892335'),"+
-            "(29,7,'Liverpool ,'','21.5102987','-104.8921414'),"+
-            "(30,7,'Oxxo ,'','21.5114953','-104.8927524'),"+
-            "(31,7,'Salinas & Rocha ,'','21.5114217','-104.8927966'),"+
-            "(32,7,'Modatelas ,'','21.5111415','-104.893177'),"+
-            "(33,7,'Coppel Canada México ,'','21.5108047','-104.8926759'),"+
-            "(34,6,'Farmacias Benavides ,'','21.5108646','-104.8920871'),"+
-            "(35,6,'Farmacias El Fénix ,'','21.5109383','-104.8919626'),"+
-            "(36,6,'Farmacias Sufacen ,'','21.5097953','-104.8936898'),"+
-            "(37,2,'Tower Pizzas ,'','21.5099182','-104.8922729'),"+
-            "(38,2,'KFC ,'','21.5119189','-104.8935664'),"+
-            "(39,2,'Fresh Salads ,'','21.511517','-104.8918196'),"+
-            "(40,2,'Casa Tigre ,'','21.5108488','-104.8915351'),"+
-            "(41,,'Sanitarios,'','21.51254','-104.893064')";
+
+
+
+
+
+
+
 
 
 
@@ -108,6 +113,8 @@ public class db_pois extends SQLiteOpenHelper {
             + COLUMN_NAME_COSTO
             + " text, "
             + COLUMN_NAME_COSTOAPROX
+            + " text, "
+            + COLUMN_NAME_FOTO
             + " text )";
 
 
