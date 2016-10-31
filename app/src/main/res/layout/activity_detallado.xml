@@ -9,15 +9,79 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.ygb.turismotepic.DetalladoActivity">
+    <ImageView
+        android:id="@+id/iv1"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@mipmap/museo"
+        android:layout_marginTop="-30dp"
+        android:layout_below="@+id/rl1"
+       />
 
-    <TextView
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|right"
+        android:id="@+id/rl1"
+        >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#F29100"
+                android:id="@+id/barra"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/rico"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="-30dp"
+            android:layout_below="@+id/barra"
+            android:layout_alignRight="@id/barra"
+            />
+
+        </RelativeLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/iv1"
+        android:background="#55F"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:textSize="17dp"
+            android:textColor="#F29100"
+            android:textStyle="bold"
+            android:text="Mágico edificio del antigo oeste ubicado en tepic a la altura de frente a fabricas"
+            />
+        <TextView
+            android:id="@+id/costo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:textSize="17dp"
+            android:textColor="#F29100"
+            android:textStyle="bold"
+            android:text="Costo: Entrada libre"
+            />
+
+    </LinearLayout>
+    <TextView
         android:id="@+id/idPlace"
-        android:textSize="200dp"
-        android:text="9"
-        android:textStyle="bold"
+        android:layout_below="@id/iv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="#F200"
+        android:textSize="85dp"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:text="sdsa"
         />
 </RelativeLayout>
