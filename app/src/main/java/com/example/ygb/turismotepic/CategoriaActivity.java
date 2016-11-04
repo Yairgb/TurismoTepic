@@ -86,7 +86,6 @@ public class CategoriaActivity extends Activity implements ListView.OnItemClickL
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        System.out.println("Pressed" + position);
         String idPoi = listaPoisid.get(position);
         Intent intent = new Intent(getApplicationContext(),DetalladoActivity.class);
         intent.putExtra("id",idPoi);

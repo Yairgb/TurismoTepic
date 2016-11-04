@@ -91,8 +91,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(this, PoiMenu.class);
             startActivity(intent);
         } else if (id == R.id.nav_encuesta) {
-
-
+            Intent intent = new Intent(this, EncuestaActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_logout) {
             finish();
         }

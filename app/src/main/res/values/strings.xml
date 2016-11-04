@@ -66,4 +66,14 @@
     <string name="tv_otros">Otros</string>
 
 
+    <string name="tpreg1">Pregunta 1</string>
+    <string name="tpreg2">Pregunta 2</string>
+    <string name="tpreg3">Pregunta 3</string>
+    <string name="tpreg4">Pregunta 4</string>
+    <string name="tpreg5">Pregunta 5</string>
+
+    <string name="pregp">¿Cómo consideras que fue la limpieza del centro histórico en tu estadia por Tepic?</string>
+    <string name="title_activity_path_poi">Map</string>
+
+
 </resources>

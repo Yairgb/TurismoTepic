@@ -2,6 +2,7 @@ package com.example.ygb.turismotepic;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatCheckBox;
@@ -15,9 +16,14 @@ import android.widget.Toast;
 
 import com.example.ygb.turismotepic.rc.rc_usuarios;
 
+import static android.R.attr.password;
+
 public class Login extends Activity {
 
     private rc_usuarios rcUsuarios;
+    private SharedPreferences loginPreferences;
+    private SharedPreferences.Editor loginPrefsEditor;
+    private Boolean saveLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +42,14 @@ public class Login extends Activity {
         final EditText etPassL = (EditText) findViewById(R.id.etPassLog);
         final TextView tvLogin = (TextView) findViewById(R.id.tvTitleLogin);
         final CheckBox cbR = (CheckBox) findViewById(R.id.cbRemenberme);
-
+        loginPreferences = getSharedPreferences("loginPrefs",MODE_PRIVATE);
+        loginPrefsEditor = loginPreferences.edit();
+        saveLogin = loginPreferences.getBoolean("saveLogin",false);
+        if(saveLogin==true){
+            etUsuarioL.setText(loginPreferences.getString("username",""));
+            etPassL.setText(loginPreferences.getString("password",""));
+            cbR.setChecked(true);
+        }
 
         tx.setTypeface(roboto);
         etUsuarioL.setTypeface(maven);
@@ -65,6 +78,15 @@ public class Login extends Activity {
                     Toast.makeText(Login.this, "El usuario o password es incorrecto", Toast.LENGTH_SHORT).show();
                 }else{
 
+                    if (cbR.isChecked()) {
+                        loginPrefsEditor.putBoolean("saveLogin", true);
+                        loginPrefsEditor.putString("username", etUsuarioL.getText().toString());
+                        loginPrefsEditor.putString("password", etPassL.getText().toString());
+                        loginPrefsEditor.commit();
+                    } else {
+                        loginPrefsEditor.clear();
+                        loginPrefsEditor.commit();
+                    }
                     Intent intent = new Intent(v.getContext(), MainActivity.class);
                     startActivity(intent);
                     Login.this.finish();
