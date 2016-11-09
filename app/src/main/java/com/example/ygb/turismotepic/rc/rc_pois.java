@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteException;
 
 import com.example.ygb.turismotepic.db.db_pois;
 
+import java.util.ArrayList;
+
 import static com.example.ygb.turismotepic.db.db_usuarios.COLUMN_NAME_ACCOMPANYING;
 import static com.example.ygb.turismotepic.db.db_usuarios.COLUMN_NAME_EDAD;
 import static com.example.ygb.turismotepic.db.db_usuarios.COLUMN_NAME_MOTIVO;
@@ -41,7 +43,17 @@ public class rc_pois {
     public Cursor getDatos(String id){
         String[] args = new String[] {id};
         Cursor c = database.rawQuery(" SELECT * FROM pois WHERE id_poi=?",args);
+        return c;
+    }
 
+    public Cursor getPois(){
+        Cursor c =database.rawQuery("SELECT * FROM pois WHERE id_poi>13 AND id_poi<38", null);
+        /*ArrayList<String> pois = new ArrayList<String>();
+        while(!c.isAfterLast()) {
+            pois.add(c.getString(c.getColumnIndex("name")));
+            c.moveToNext();
+        }*/
+        //c.close();
         return c;
     }
 

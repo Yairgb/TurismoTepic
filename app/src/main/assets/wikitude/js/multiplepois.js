@@ -1,3 +1,51 @@
+var nombre ="Edwin";
+var descripcion=JSON.parse("{}");
+function newData(jsonData){
+	  descripcion = JSON.parse(jsonData);
+
+	  /*for(var i = 0; i < jsonObject.length; i++){
+
+	    // use jsonObject[i] data to create the AR objects for each POI
+	  }*/
+	}
+	function fondo(categoria){
+		drawable=null;
+	  switch(categoria){
+	  	case 1:
+	  		drawable = new AR.ImageResource("assets/hoteles.png");
+	  		break;
+	  	case 2:
+	  		drawable = new AR.ImageResource("assets/restaurantes.png");
+	  		break;
+	  	case 3:
+	  		drawable = new AR.ImageResource("assets/monumentos.png");
+	  		break;
+	  	case 4:
+	  		drawable = new AR.ImageResource("assets/museos.png");
+	  		break;
+	  	case 5:
+	  		drawable = new AR.ImageResource("assets/bancos.png");
+	  		break;
+	  	case 6:
+	  		drawable = new AR.ImageResource("assets/farmacias.png");
+	  		break;
+	  	case 7:
+	  		drawable = new AR.ImageResource("assets/tiendas.png");
+	  		break;
+	  	case 8:
+	  		drawable = new AR.ImageResource("assets/plazas.png");
+	  		break;
+	  	case 9:
+	  		drawable = new AR.ImageResource("assets/parques.png");
+	  		break;
+	  	case 10:
+	  		drawable = new AR.ImageResource("assets/otros.png");
+	  		break;
+	  	default:
+	  		drawable = new AR.ImageResource("assets/monumentos.png");
+	  }
+	  return drawable;
+	}
 // implementation of AR-Experience (aka "World")
 var World = {
 	// true once data was fetched
@@ -20,11 +68,13 @@ var World = {
 
 		// start loading marker assets
 		//World.markerDrawable_idle = new AR.ImageResource("assets/marker_idle.png");
-		World.markerDrawable_idle = new AR.ImageResource("assets/flecha.png");
-		World.markerDrawable_selected = new AR.ImageResource("assets/marker_selected.png");
-
+		
+			World.markerDrawable_idle = new AR.ImageResource("assets/farmacias.png");
+			World.markerDrawable_selected = new AR.ImageResource("assets/cuadro.png");
 		// loop through POI-information and create an AR.GeoObject (=Marker) per POI
 		for (var currentPlaceNr = 0; currentPlaceNr < poiData.length; currentPlaceNr++) {
+
+			drawable = fondo(parseInt(poiData[currentPlaceNr].cat));
 			var singlePoi = {
 				"id": poiData[currentPlaceNr].id,
 				"latitude": parseFloat(poiData[currentPlaceNr].latitude),
@@ -38,7 +88,7 @@ var World = {
 				To be able to deselect a marker while the user taps on the empty screen, 
 				the World object holds an array that contains each marker.
 			*/
-			World.markerList.push(new Marker(singlePoi));
+			World.markerList.push(new Marker(singlePoi,drawable));
 		}
 
 		World.updateStatusMessage(currentPlaceNr + ' places loaded');
@@ -99,27 +149,30 @@ var World = {
 
 	// request POI data
 	requestDataFromLocal: function requestDataFromLocalFn(centerPointLatitude, centerPointLongitude) {
-		var poisToCreate = 3;
+		var poisToCreate = 10;
 		var poiData = [];
-		/*for (var i = 0; i < poisToCreate; i++) {
+
+		for (var i = 0; i < poisToCreate; i++) {
 			poiData.push({
 				"id": (i + 1),
-				"longitude": (centerPointLongitude + (Math.random() / 5 - 0.1)),
-				"latitude": (centerPointLatitude + (Math.random() / 5 - 0.1)),
-				"description": ("h:" + (centerPointLongitude + (Math.random() / 5 - 0.1))),
+				"longitude": (descripcion[i][6]),
+				"latitude": (descripcion[i][5]),
+				"description": ("h:" + (String(descripcion[i][7]))),
 				"altitude": "100.0",
-				"name": ("POI#" + (i + 1))
+				"cat": (descripcion[i][1]),
+				"name": (String(descripcion[i][2]))
 			});
-		}*/
-		poiData.push({
+		}
+		//var nombre="Edwin";
+		/*poiData.push({
 				"id": (4),
 				"longitude": (-104.848677),
 				"latitude": (21.484419),
-				"description": ("h:" + String(centerPointLatitude)),
+				"description": ("h:" + String(descripcion[0][2])),
 				"altitude": "100.0",
 				"name": ("Dentro")
 			});
-		poiData.push({
+	  poiData.push({
 				"id": (5),
 				"longitude": (-104.848881),
 				"latitude": (21.484506),
@@ -142,7 +195,10 @@ var World = {
 				"description": ("h:" + String(centerPointLatitude)),
 				"altitude": "100.0",
 				"name": ("Otro")
-			});
+			});*/
+		
+		
+
 		World.loadPoisFromJsonData(poiData);
 	}
 

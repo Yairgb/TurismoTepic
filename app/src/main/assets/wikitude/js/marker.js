@@ -1,4 +1,4 @@
-function Marker(poiData) {
+function Marker(poiData,drawable) {
 
     /*
         For creating the marker a new object AR.GeoObject will be created at the specified geolocation. An AR.GeoObject connects one or more AR.GeoLocations with multiple AR.Drawables. The AR.Drawables can be defined for multiple targets. A target can be the camera, the radar or a direction indicator. Both the radar and direction indicators will be covered in more detail in later examples.
@@ -10,7 +10,7 @@ function Marker(poiData) {
     var markerLocation = new AR.GeoLocation(poiData.latitude, poiData.longitude, poiData.altitude);
 
     // create an AR.ImageDrawable for the marker in idle state
-    this.markerDrawable_idle = new AR.ImageDrawable(World.markerDrawable_idle, 3, {
+    this.markerDrawable_idle = new AR.ImageDrawable(drawable, 1, {
         zOrder: 0,
         opacity: 1.0,
         /*
@@ -22,14 +22,15 @@ function Marker(poiData) {
     // create an AR.ImageDrawable for the marker in selected state
     this.markerDrawable_selected = new AR.ImageDrawable(World.markerDrawable_selected, 3, {
         zOrder: 0,
+        offsetY: -4,
         opacity: 0.0,
         onClick: null
     });
 
     // create an AR.Label for the marker's title 
-    this.titleLabel = new AR.Label(poiData.title.trunc(100), 1, {
+    this.titleLabel = new AR.Label(poiData.title.trunc(100), .6, {
         zOrder: 1,
-        offsetY: 0.55,
+        offsetY: -1,
         style: {
             textColor: '#FFFFFF',
             fontStyle: AR.CONST.FONT_STYLE.BOLD
@@ -48,7 +49,8 @@ function Marker(poiData) {
     // create the AR.GeoObject with the drawable objects
     this.markerObject = new AR.GeoObject(markerLocation, {
         drawables: {
-            cam: [this.markerDrawable_idle, this.markerDrawable_selected, this.titleLabel, this.descriptionLabel]
+            cam: [this.markerDrawable_idle, this.markerDrawable_selected, this.titleLabel]
+            //cam: [this.markerDrawable_idle, this.markerDrawable_selected, this.titleLabel, this.descriptionLabel]
         }
     });
 
@@ -87,7 +89,7 @@ Marker.prototype.setSelected = function(marker) {
 
     marker.isSelected = true;
 
-    marker.markerDrawable_idle.opacity = 0.0;
+    //marker.markerDrawable_idle.opacity = 0.0;
     marker.markerDrawable_selected.opacity = 1.0;
     marker.markerDrawable_idle.onClick = null;
     marker.markerDrawable_selected.onClick = Marker.prototype.getOnClickTrigger(marker);
@@ -97,7 +99,7 @@ Marker.prototype.setDeselected = function(marker) {
 
     marker.isSelected = false;
 
-    marker.markerDrawable_idle.opacity = 1.0;
+    //marker.markerDrawable_idle.opacity = 1.0;
     marker.markerDrawable_selected.opacity = 0.0;
 
     marker.markerDrawable_idle.onClick = Marker.prototype.getOnClickTrigger(marker);

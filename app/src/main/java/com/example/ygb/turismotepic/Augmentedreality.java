@@ -1,33 +1,73 @@
 package com.example.ygb.turismotepic;
 
 import android.app.Activity;
+import android.content.Context;
+import android.database.Cursor;
 import android.hardware.SensorManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationProvider;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import com.example.ygb.turismotepic.rc.rc_pois;
 import com.wikitude.architect.ArchitectView;
 import com.wikitude.architect.StartupConfiguration;
+
+import org.json.JSONArray;
+
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
 
 public class Augmentedreality extends Activity implements ArchitectViewHolderInterface {
-    protected ArchitectView					 architectView;
+    protected ArchitectView architectView;
     protected ArchitectView.SensorAccuracyChangeListener sensorAccuracyListener;
     protected Location lastKnownLocaton;
     protected ArchitectViewHolderInterface.ILocationProvider locationProvider;
     protected LocationListener locationListener;
+    private rc_pois poisdb;
+    Cursor datos;
+    private static ArrayList<String> array = new ArrayList<String>();
+    //ArrayList<String> array = new ArrayList<String>();
+    ArrayList<String> array2 = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_augmentedreality);
 
+        poisdb= new rc_pois(getApplicationContext());
+        poisdb.open();
+        datos=poisdb.getPois();
+        datos.moveToFirst();
+        int o=0;
+        while(!datos.isAfterLast()) {
+            array2.clear();
+            for(int i=0;i<12;i++){
+                array2.add(datos.getString(i));
+            }
+            JSONArray conv = new JSONArray(array2);
+
+            array.add(conv.toString());
+            datos.moveToNext();
+        }
+        System.out.println();
+
+
+        JSONArray jsonArray = new JSONArray(array);
+
+        //System.out.println(jsonArray);
+
 
         this.architectView = (ArchitectView)this.findViewById( R.id.architectView );
         final StartupConfiguration config = new StartupConfiguration(this.getWikitudeSDKLicenseKey(), StartupConfiguration.Features.Geo, this.getCameraPosition());
+        this.architectView.callJavascript( "newData('" +array.toString() + "');" );
         try {
             this.architectView.onCreate( config );
+
         } catch (RuntimeException ex)
         {
             this.architectView = null;

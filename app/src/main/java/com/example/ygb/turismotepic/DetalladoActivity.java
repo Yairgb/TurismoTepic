@@ -8,10 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.ygb.turismotepic.rc.rc_pois;
 
-import org.w3c.dom.Text;
 
 public class DetalladoActivity extends Activity {
     private rc_pois poisdb;

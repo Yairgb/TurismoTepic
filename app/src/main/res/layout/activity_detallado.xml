@@ -14,7 +14,7 @@
         android:id="@+id/iv1"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:src="@drawable/fray"
+        android:src="@drawable/f02_01"
         android:scaleType="fitCenter"
         android:cropToPadding="true"
         android:background="#000"
