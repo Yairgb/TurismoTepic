@@ -37,12 +37,12 @@
         <item name="colorControlActivated">#ea5b0c</item>
     </style>
     <style name="AppTheme.Fullscreen" parent="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
-        <item name="android:colorAccent">#F82</item>
+
     </style>
     <style name="StarRatingBar" parent="@android:style/Widget.RatingBar">
         <item name="android:progressDrawable">@drawable/cratingb_full</item>
-        <item name="android:minHeight">30dip</item>
-        <item name="android:maxHeight">30dip</item>
+        <item name="android:minHeight">35dip</item>
+        <item name="android:maxHeight">35dip</item>
 
         </style>
 

@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.ygb.turismotepic.rc.rc_pois;
 
+import static java.sql.Types.NULL;
+
 
 public class DetalladoActivity extends Activity {
     private rc_pois poisdb;
@@ -37,11 +39,16 @@ public class DetalladoActivity extends Activity {
         horario.setText("Horario: "+datos.getString(7));
         costo.setText("Costo: "+datos.getString(9));
         descripcion.setText(datos.getString(4));
+
+
+        //Cosas de la imagen
         String image=datos.getString(11);
-        System.out.println(image);
-        int id = getResources().getIdentifier(image, "drawable", getPackageName());
-        Drawable drawable = getResources().getDrawable(id);
-        iv1.setImageDrawable(drawable);
+        System.out.println("Nombre: "+image);
+        if(!image.equals("")) {
+            int id = getResources().getIdentifier(image, "drawable", getPackageName());
+            Drawable drawable = getResources().getDrawable(id);
+            iv1.setImageDrawable(drawable);
+        }
 
     }
 }

@@ -70,11 +70,13 @@
             android:layout_marginRight="10dp"
             android:gravity="center"
             android:id="@+id/preg1"
+            android:layout_marginBottom="10dp"
             android:layout_below="@id/tp1preg1"
             />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:gravity="center|center_horizontal"
                 android:layout_below="@id/preg1"
                 >
@@ -83,13 +85,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/ratingb1"
                     android:stepSize="0.5"
-                    android:progressTint="#F82"
-                    android:secondaryProgressTintMode="@color/transparent"
-                    android:progressBackgroundTint="@color/transparent"
-                    android:indeterminateTint="@color/transparent"
-                    android:secondaryProgressTint="@color/transparent"
-                    android:backgroundTint="@color/transparent"
-                    android:secondaryProgress="@color/transparent" />
+                    style="@style/StarRatingBar"
+                    />
 
 
             </LinearLayout>
@@ -102,7 +99,7 @@
             android:layout_below="@id/p1"
             android:layout_height="wrap_content">
             <TextView
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -130,6 +127,7 @@
                 <RatingBar
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:id="@+id/ratingb2"
                     android:stepSize="0.5"
                     style="@style/StarRatingBar"
@@ -174,6 +172,7 @@
                 <RatingBar
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:id="@+id/ratingb3"
                     android:stepSize="0.5"
                     style="@style/StarRatingBar"
@@ -218,6 +217,7 @@
                 <RatingBar
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:id="@+id/ratingb4"
                     android:stepSize="0.5"
                     style="@style/StarRatingBar"
@@ -261,6 +261,7 @@
                 <RatingBar
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:id="@+id/ratingb5"
                     android:stepSize="0.5"
                     style="@style/StarRatingBar"
@@ -272,7 +273,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:gravity="center|center_horizontal"
             android:layout_below="@id/p5">
             <ImageButton
