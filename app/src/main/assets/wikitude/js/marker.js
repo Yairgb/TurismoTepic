@@ -22,7 +22,7 @@ function Marker(poiData,drawable) {
     // create an AR.ImageDrawable for the marker in selected state
     this.markerDrawable_selected = new AR.ImageDrawable(World.markerDrawable_selected, 3, {
         zOrder: 0,
-        offsetY: -4,
+        offsetY: -2.5,
         opacity: 0.0,
         onClick: null
     });

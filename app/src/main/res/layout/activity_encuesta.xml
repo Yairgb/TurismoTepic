@@ -15,8 +15,8 @@
         android:layout_height="50dp"
         android:id="@+id/titulo"
         android:background="#F29100"
+        android:paddingBottom="5dp"
         android:gravity="bottom|center_horizontal"
-        android:paddingBottom="10dp"
         >
 
         <ImageView
@@ -51,40 +51,42 @@
         <RelativeLayout
             android:id="@+id/p1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="10dp"
+            >
         <TextView
-            android:layout_marginTop="20dp"
             android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tp1preg1"
             android:gravity="center"
             android:text="@string/tpreg1"
+            android:layout_marginBottom="5dp"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:text="@string/pregp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:gravity="center"
             android:id="@+id/preg1"
-            android:layout_marginBottom="10dp"
             android:layout_below="@id/tp1preg1"
             />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:gravity="center|center_horizontal"
                 android:layout_below="@id/preg1"
+                android:layout_marginTop="10dp"
                 >
                 <RatingBar
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/ratingb1"
                     android:stepSize="0.5"
+                    android:rating="3.5"
                     style="@style/StarRatingBar"
                     />
 
@@ -97,20 +99,23 @@
             android:id="@+id/p2"
             android:layout_width="wrap_content"
             android:layout_below="@id/p1"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            >
+            >
             <TextView
-                android:layout_marginTop="10dp"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tp2preg2"
                 android:gravity="center"
                 android:text="@string/tpreg2"
+                android:layout_marginBottom="5dp"
                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:text="@string/pregp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -123,13 +128,14 @@
                 android:layout_height="wrap_content"
                 android:gravity="center|center_horizontal"
                 android:layout_below="@id/preg2"
+                android:layout_marginTop="10dp"
                 >
                 <RatingBar
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:id="@+id/ratingb2"
                     android:stepSize="0.5"
+                    android:rating="3.5"
                     style="@style/StarRatingBar"
                     />
 
@@ -142,20 +148,22 @@
             android:id="@+id/p3"
             android:layout_below="@id/p2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            >
             <TextView
-                android:layout_marginTop="20dp"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tp2preg3"
                 android:gravity="center"
                 android:text="@string/tpreg3"
+                android:layout_marginBottom="5dp"
                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:text="@string/pregp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -168,13 +176,14 @@
                 android:layout_height="wrap_content"
                 android:gravity="center|center_horizontal"
                 android:layout_below="@id/preg3"
+                android:layout_marginTop="10dp"
                 >
                 <RatingBar
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:id="@+id/ratingb3"
                     android:stepSize="0.5"
+                    android:rating="3.5"
                     style="@style/StarRatingBar"
                     />
 
@@ -187,20 +196,21 @@
             android:id="@+id/p4"
             android:layout_below="@id/p3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp">
             <TextView
-                android:layout_marginTop="20dp"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tp3preg3"
                 android:gravity="center"
                 android:text="@string/tpreg4"
+                android:layout_marginBottom="5dp"
                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:text="@string/pregp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -213,12 +223,13 @@
                 android:layout_height="wrap_content"
                 android:gravity="center|center_horizontal"
                 android:layout_below="@id/preg4"
+                android:layout_marginTop="10dp"
                 >
                 <RatingBar
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:id="@+id/ratingb4"
+                    android:rating="3.5"
                     android:stepSize="0.5"
                     style="@style/StarRatingBar"
                     />
@@ -231,20 +242,21 @@
             android:id="@+id/p5"
             android:layout_below="@id/p4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp">
             <TextView
-                android:layout_marginTop="20dp"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tp5preg5"
                 android:gravity="center"
                 android:text="@string/tpreg5"
+                android:layout_marginBottom="5dp"
                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:text="@string/pregp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
@@ -257,12 +269,14 @@
                 android:layout_height="wrap_content"
                 android:gravity="center|center_horizontal"
                 android:layout_below="@id/preg5"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 >
                 <RatingBar
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:id="@+id/ratingb5"
+                    android:rating="3.5"
                     android:stepSize="0.5"
                     style="@style/StarRatingBar"
                     />
@@ -274,8 +288,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center|center_horizontal"
-            android:layout_below="@id/p5">
+            android:layout_below="@id/p5"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="25dp">
             <ImageButton
+                android:id="@+id/btnEnviar"
                 android:layout_width="150dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_height="50dp"

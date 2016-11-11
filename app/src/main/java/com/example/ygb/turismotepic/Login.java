@@ -17,12 +17,13 @@ import android.widget.Toast;
 import com.example.ygb.turismotepic.rc.rc_usuarios;
 
 import static android.R.attr.password;
+import static java.lang.Integer.parseInt;
 
 public class Login extends Activity {
 
     private rc_usuarios rcUsuarios;
-    private SharedPreferences loginPreferences;
-    private SharedPreferences.Editor loginPrefsEditor;
+    private SharedPreferences loginPreferences,user;
+    private SharedPreferences.Editor loginPrefsEditor,userEditor;
     private Boolean saveLogin;
 
     @Override
@@ -43,7 +44,10 @@ public class Login extends Activity {
         final TextView tvLogin = (TextView) findViewById(R.id.tvTitleLogin);
         final CheckBox cbR = (CheckBox) findViewById(R.id.cbRemenberme);
         loginPreferences = getSharedPreferences("loginPrefs",MODE_PRIVATE);
+        user=getSharedPreferences("user",MODE_PRIVATE);
         loginPrefsEditor = loginPreferences.edit();
+        userEditor=user.edit();
+
         saveLogin = loginPreferences.getBoolean("saveLogin",false);
         if(saveLogin==true){
             etUsuarioL.setText(loginPreferences.getString("username",""));
@@ -77,6 +81,9 @@ public class Login extends Activity {
                 if(id == null){
                     Toast.makeText(Login.this, "El usuario o password es incorrecto", Toast.LENGTH_SHORT).show();
                 }else{
+                    System.out.println("id mandado: "+parseInt(id));
+                    userEditor.putInt("idUser",parseInt(id));
+                    userEditor.commit();
 
                     if (cbR.isChecked()) {
                         loginPrefsEditor.putBoolean("saveLogin", true);

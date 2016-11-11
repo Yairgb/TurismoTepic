@@ -19,7 +19,7 @@ public class db_encuesta extends SQLiteOpenHelper {
     public static final String COLUMN_NAME_Q2 = "q2";
     public static final String COLUMN_NAME_Q3 = "q3";
     public static final String COLUMN_NAME_Q4 = "q4";
-    public static final String COLUMN_NAME_OPINION = "opnion";
+    public static final String COLUMN_NAME_Q5 = "q5";
 
 
 
@@ -40,7 +40,7 @@ public class db_encuesta extends SQLiteOpenHelper {
             + " text, "
             + COLUMN_NAME_Q4
             + " text, "
-            + COLUMN_NAME_OPINION
+            + COLUMN_NAME_Q5
             + " text )";
 
 
