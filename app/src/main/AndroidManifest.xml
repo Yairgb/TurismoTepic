@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ygb.turismotepic">
+    package="com.ut3.ehg.turismotepic">
 
     <uses-sdk
         android:minSdkVersion="21"
@@ -55,11 +55,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.ut3.ehg.turismotepic.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
+
             <!--
             <intent-filter>
             android:theme="@style/AppTheme.NoActionBar"
@@ -69,19 +70,20 @@
             -->
         </activity>
         <activity
-            android:name=".Augmentedreality"
+            android:name="com.ut3.ehg.turismotepic.Augmentedreality"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
-            android:name=".SplashScreen"
+            android:name="com.ut3.ehg.turismotepic.SplashScreen"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".SplashScreen2"
+            android:name="com.ut3.ehg.turismotepic.SplashScreen2"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -89,12 +91,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Login"
+            android:name="com.ut3.ehg.turismotepic.Login"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar.Fullscreen" />
         <activity
-            android:name=".Registro"
+            android:name="com.ut3.ehg.turismotepic.Registro"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" />
@@ -107,19 +109,19 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".PoiMenu"
+            android:name="com.ut3.ehg.turismotepic.PoiMenu"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" />
         <activity
-            android:name=".CategoriaActivity"
+            android:name="com.ut3.ehg.turismotepic.CategoriaActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" />
         <activity
-            android:name=".DetalladoActivity"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen"></activity>
+            android:name="com.ut3.ehg.turismotepic.DetalladoActivity"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" />
         <activity
-            android:name=".EncuestaActivity"
-            android:theme="@style/AppTheme.Fullscreen"></activity>
+            android:name="com.ut3.ehg.turismotepic.EncuestaActivity"
+            android:theme="@style/AppTheme.Fullscreen" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -132,6 +134,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <activity android:name="com.ut3.ehg.turismotepic.HomeActivity"></activity>
     </application>
 
 </manifest>

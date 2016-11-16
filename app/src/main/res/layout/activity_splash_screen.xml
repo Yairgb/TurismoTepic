@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.ygb.turismotepic.SplashScreen"
+    tools:context="com.ut3.ehg.turismotepic.SplashScreen"
     android:background="@mipmap/back">
 
 

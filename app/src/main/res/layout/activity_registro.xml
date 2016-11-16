@@ -10,14 +10,12 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.ygb.turismotepic.Registro">
+    tools:context="com.ut3.ehg.turismotepic.Registro">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="92dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true">
 
@@ -267,7 +265,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_weight="1"
                     android:background="@mipmap/registrar"
-                    android:layout_marginStart="20dp" />
+                    android:layout_gravity="center" />
             </LinearLayout>
 
         </LinearLayout>

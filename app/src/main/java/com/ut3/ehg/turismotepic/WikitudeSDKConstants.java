@@ -1,0 +1,10 @@
+package com.ut3.ehg.turismotepic;
+
+/**
+ * Created by LAB-DES-05 on 20/09/2016.
+ */
+
+
+    public class WikitudeSDKConstants {
+        protected static final String WIKITUDE_SDK_KEY = "F3ZxIuo+VvZulIu1fAN+jFtxtUvgU5W+hRCn6WplQ5WmTNMs3yrsZ5/MYrlAO2IgiDJHCxdRLY5a7zpMWZeB1JYhbheNuH3WavhqGSb1/aRCESu0W5fUkH4Gjsi/Zd1ez7PvnWTg67Fufyua6vTXPLcqsrS/tK05tcwuePSA0JtTYWx0ZWRfX51jWbvWIxCK/ZA6I+KcIaDAWiAARrSrOZWyfK8fILJ99RITb3GF9ur+opFYcUra0VcGMSCIn54CEOMr2dkYww31axkEfMKTn4y0LVuER7EBW17cWTe+q2ituqM1N0M2oYg+XZvr4xWB2y6aL9hC9IDEH3pWjQIOZreym5sRpHhqGa6XRL9QvSIt+IXoYP1P8coMF8xBGvTbe8BuQzOzlGrBnMz75R66mfigxQ9He8haCkzp5bBnPYKGWIgp0f1PorLpMX6m5D+3F0KvAW9hmZFk1vQfe2WNYOXCC2q11S2eqHgqe5ezhasaZHE3pB3J6Dqy+AwBvM8FIWO9ooUI4dz32JFsQt8EyNaTYyP5ocg0bZDMaLZHU+wdYZEhVmVkF8KU+qee/RyAEa+6barpcqJdJscWr8p2PgX4mPrPhQO2iIjJCZEle8hc0YWaTnCWeCbZZd6QarzTMDOwjxzvfKgUulWyGOD7zg6BYnhXMjgdTEoKx6oojwQ=";
+    }

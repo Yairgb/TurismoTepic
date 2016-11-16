@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.ygb.turismotepic.DetalladoActivity">
+    tools:context="com.ut3.ehg.turismotepic.DetalladoActivity">
 
     <ImageView
         android:id="@+id/iv1"
@@ -101,7 +101,7 @@
                 android:text="Costo: Entrada libre"
                 />
 
-            <com.example.ygb.turismotepic.JustifyTextView
+            <com.ut3.ehg.turismotepic.JustifyTextView
                 android:id="@+id/descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
