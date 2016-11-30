@@ -7,9 +7,14 @@ import android.graphics.drawable.Drawable;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.ut3.ehg.turismotepic.rc.rc_pois;
@@ -17,12 +22,13 @@ import com.ut3.ehg.turismotepic.rc.rc_pois;
 import static android.content.Context.MODE_PRIVATE;
 
 
-public class DetalladoActivity extends Fragment {
+public class DetalladoActivity extends Fragment implements View.OnClickListener {
     private rc_pois poisdb;
     Cursor datos;
     ViewGroup root;
     Context cntx;
-    SharedPreferences poi;
+    SharedPreferences poi,ubic;
+    SharedPreferences.Editor editarUbic;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -40,6 +46,7 @@ public class DetalladoActivity extends Fragment {
         TextView horario =(TextView)root.findViewById(R.id.horario);
         TextView costo=(TextView)root.findViewById(R.id.costo);
         TextView descripcion=(TextView)root.findViewById(R.id.descripcion);
+        ImageButton bruta = (ImageButton)root.findViewById(R.id.bruta);
         //Obtención de los datos
         poisdb= new rc_pois(root.getContext());
         poisdb.open();
@@ -50,6 +57,7 @@ public class DetalladoActivity extends Fragment {
         horario.setText("Horario: "+datos.getString(7));
         costo.setText("Costo: "+datos.getString(9));
         descripcion.setText(datos.getString(4));
+        bruta.setOnClickListener(this);
 
 
         //Cosas de la imagen
@@ -63,4 +71,18 @@ public class DetalladoActivity extends Fragment {
         return root;
     }
 
+    @Override
+    public void onClick(View v) {
+        String loc = datos.getString(5)+","+datos.getString(6);
+        String fragmentTemp="com.ut3.ehg.turismotepic.MapsActivity";
+        DrawerLayout drawer = (DrawerLayout) getActivity().findViewById(R.id.drawer_layout);
+        FragmentTransaction tx = getActivity().getSupportFragmentManager().beginTransaction();
+        tx.replace(R.id.lframe, Fragment.instantiate(getContext(), fragmentTemp)).addToBackStack("tag");
+        tx.commit();
+        drawer.closeDrawer(GravityCompat.START);
+        ubic = getContext().getSharedPreferences("ubic",MODE_PRIVATE);
+        editarUbic=ubic.edit();
+        editarUbic.putString("loc",loc);
+        editarUbic.commit();
+    }
 }

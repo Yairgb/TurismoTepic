@@ -1,13 +1,14 @@
+var datos;
 function Marker(poiData,drawable) {
 
     /*
         For creating the marker a new object AR.GeoObject will be created at the specified geolocation. An AR.GeoObject connects one or more AR.GeoLocations with multiple AR.Drawables. The AR.Drawables can be defined for multiple targets. A target can be the camera, the radar or a direction indicator. Both the radar and direction indicators will be covered in more detail in later examples.
     */
-
     this.poiData = poiData;
 
     // create the AR.GeoLocation from the poi data
-    var markerLocation = new AR.GeoLocation(poiData.latitude, poiData.longitude, poiData.altitude);
+    //var markerLocation = new AR.GeoLocation(poiData.latitude, poiData.longitude, poiData.altitude);
+    var markerLocation = new AR.GeoLocation(poiData.latitude, poiData.longitude);
 
     // create an AR.ImageDrawable for the marker in idle state
     this.markerDrawable_idle = new AR.ImageDrawable(drawable, 1, {
@@ -22,7 +23,7 @@ function Marker(poiData,drawable) {
     // create an AR.ImageDrawable for the marker in selected state
     this.markerDrawable_selected = new AR.ImageDrawable(World.markerDrawable_selected, 3, {
         zOrder: 0,
-        offsetY: -2.5,
+        offsetY: -2.2,
         opacity: 0.0,
         onClick: null
     });
@@ -38,18 +39,22 @@ function Marker(poiData,drawable) {
     });
 
     // create an AR.Label for the marker's description
+    //var location1 = new AR.GeoLocation(parseInt(descripcion[i][5]),parseInt(descripcion[i][6]));
+    //var distance= marker.distanceToUser();
+    
     this.descriptionLabel = new AR.Label(poiData.description, 0.8, {
         zOrder: 1,
-        offsetY: -0.55,
+        opacity:0,
+        offsetY: -2.3,
         style: {
-            textColor: '#FFFFFF'
+            textColor: '#000000'
         }
     });
 
     // create the AR.GeoObject with the drawable objects
     this.markerObject = new AR.GeoObject(markerLocation, {
         drawables: {
-            cam: [this.markerDrawable_idle, this.markerDrawable_selected, this.titleLabel]
+            cam: [this.markerDrawable_idle, this.markerDrawable_selected, this.titleLabel,this.descriptionLabel]
             //cam: [this.markerDrawable_idle, this.markerDrawable_selected, this.titleLabel, this.descriptionLabel]
         }
     });
@@ -86,19 +91,26 @@ Marker.prototype.getOnClickTrigger = function(marker) {
 };
 
 Marker.prototype.setSelected = function(marker) {
-
+    marker.descriptionLabel.opacity=1;
     marker.isSelected = true;
-
     //marker.markerDrawable_idle.opacity = 0.0;
     marker.markerDrawable_selected.opacity = 1.0;
+    marker.titleLabel.style = {
+            textColor: '#ea5b0c',
+            fontStyle: AR.CONST.FONT_STYLE.BOLD
+        };
     marker.markerDrawable_idle.onClick = null;
     marker.markerDrawable_selected.onClick = Marker.prototype.getOnClickTrigger(marker);
 };
 
 Marker.prototype.setDeselected = function(marker) {
-
+    
+    marker.descriptionLabel.opacity=0;
     marker.isSelected = false;
-
+    marker.titleLabel.style = {
+            textColor: '#FFFFFF',
+            fontStyle: AR.CONST.FONT_STYLE.BOLD
+        };
     //marker.markerDrawable_idle.opacity = 1.0;
     marker.markerDrawable_selected.opacity = 0.0;
 

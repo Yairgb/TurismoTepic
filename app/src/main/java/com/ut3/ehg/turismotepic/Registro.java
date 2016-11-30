@@ -86,7 +86,7 @@ public class Registro extends Activity {
 
 
 
-        Button btnGuardar = (Button) findViewById(R.id.btnGuardarReg);
+        ImageButton btnGuardar = (ImageButton) findViewById(R.id.btnGuardarReg);
         //Button btnCancelar = (Button) findViewById(R.id.btnCancelarReg);
         ImageButton btnEdad = (ImageButton) findViewById(R.id.ibtnEdad);
 

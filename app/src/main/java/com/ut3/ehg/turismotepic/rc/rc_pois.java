@@ -44,7 +44,7 @@ public class rc_pois {
     }
 
     public Cursor getPois(){
-        Cursor c =database.rawQuery("SELECT * FROM pois WHERE id_poi>13 AND id_poi<38", null);
+        Cursor c =database.rawQuery("SELECT * FROM pois ", null);
         /*ArrayList<String> pois = new ArrayList<String>();
         while(!c.isAfterLast()) {
             pois.add(c.getString(c.getColumnIndex("name")));

@@ -11,27 +11,21 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         String fragmentTemp="com.ut3.ehg.turismotepic.HomeActivity";
-       // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         FragmentTransaction tx = this.getSupportFragmentManager().beginTransaction();
@@ -100,17 +94,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(intent);
         } else if (id == R.id.nav_ruta) {
             fragmentTemp="com.ut3.ehg.turismotepic.PoiMenu";
-            //Intent intent = new Intent(this, PoiMenu.class);
-            //startActivity(intent);
+            changeFragment(fragmentTemp);
         } else if (id == R.id.nav_encuesta) {
             fragmentTemp="com.ut3.ehg.turismotepic.EncuestaActivity";
-            //Intent intent = new Intent(this, EncuestaActivity.class);
-            //startActivity(intent);
+            changeFragment(fragmentTemp);
         } else if (id == R.id.nav_logout) {
             finish();
         }
 
-        changeFragment(fragmentTemp);
+
         return true;
     }
 

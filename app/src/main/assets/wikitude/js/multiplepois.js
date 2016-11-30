@@ -1,5 +1,6 @@
 var nombre ="Edwin";
 var descripcion=JSON.parse("{}");
+var blat,blon;
 function newData(jsonData){
 	  descripcion = JSON.parse(jsonData);
 
@@ -8,6 +9,15 @@ function newData(jsonData){
 	    // use jsonObject[i] data to create the AR objects for each POI
 	  }*/
 	}
+
+
+	function sortByKey(array, key) {
+    return array.sort(function(a, b) {
+        var x = a[key]; var y = b[key];
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+}
+
 	function fondo(categoria){
 		drawable=null;
 	  switch(categoria){
@@ -65,6 +75,7 @@ var World = {
 	loadPoisFromJsonData: function loadPoisFromJsonDataFn(poiData) {
 		// empty list of visible markers
 		World.markerList = [];
+		AR.context.destroyAll();
 
 		// start loading marker assets
 		//World.markerDrawable_idle = new AR.ImageResource("assets/marker_idle.png");
@@ -72,8 +83,7 @@ var World = {
 			World.markerDrawable_idle = new AR.ImageResource("assets/farmacias.png");
 			World.markerDrawable_selected = new AR.ImageResource("assets/cuadro.png");
 		// loop through POI-information and create an AR.GeoObject (=Marker) per POI
-		for (var currentPlaceNr = 0; currentPlaceNr < poiData.length; currentPlaceNr++) {
-
+		for (var currentPlaceNr = 0; currentPlaceNr < poiData.length; currentPlaceNr++){
 			drawable = fondo(parseInt(poiData[currentPlaceNr].cat));
 			var singlePoi = {
 				"id": poiData[currentPlaceNr].id,
@@ -115,13 +125,43 @@ var World = {
 		/*
 			The custom function World.onLocationChanged checks with the flag World.initiallyLoadedData if the function was already called. With the first call of World.onLocationChanged an object that contains geo information will be created which will be later used to create a marker using the World.loadPoisFromJsonData function.
 		*/
-		if (!World.initiallyLoadedData) {
-			/* 
+		var l2=new AR.GeoLocation(parseFloat(lat),parseFloat(lon));
+
+		if (blat==null)
+		{
+			blat=lat;
+			blon=lon;
+			AR.logger.warning(blat+","+blon);
+			World.requestDataFromLocal(lat, lon);
+		}else{
+			AR.logger.warning(blat+","+blon);
+			var walk = l2.distanceTo(new AR.GeoLocation(parseFloat(blat),parseFloat(blon)));
+			AR.logger.warning("Walk = "+walk);
+			if (walk>10){
+				AR.logger.warning("cambió más de 10m");
+				World.requestDataFromLocal(lat, lon);	
+				blat=lat;
+				blon=lon;
+			}
+		}
+
+
+
+
+		
+
+		
+
+
+		/*if (!World.initiallyLoadedData) {
+			 
 				requestDataFromLocal with the geo information as parameters (latitude, longitude) creates different poi data to a random location in the user's vicinity.
-			*/
+			
+			
 			World.requestDataFromLocal(lat, lon);
 			World.initiallyLoadedData = true;
-		}
+			
+		}*/
 	},
 
 	// fired when user pressed maker in cam
@@ -149,56 +189,39 @@ var World = {
 
 	// request POI data
 	requestDataFromLocal: function requestDataFromLocalFn(centerPointLatitude, centerPointLongitude) {
-		var poisToCreate = 10;
-		var poiData = [];
+		var poisToCreate = 15;
+		var poisID=[];
+		for(var i=0;i<descripcion.length;i++){
 
-		for (var i = 0; i < poisToCreate; i++) {
-			poiData.push({
-				"id": (i + 1),
-				"longitude": (descripcion[i][6]),
-				"latitude": (descripcion[i][5]),
-				"description": ("h:" + (String(descripcion[i][7]))),
-				"altitude": "100.0",
-				"cat": (descripcion[i][1]),
-				"name": (String(descripcion[i][2]))
+			var location= new AR.GeoLocation(parseFloat(descripcion[i][5]),parseFloat(descripcion[i][6]));
+			var dist = location.distanceToUser();
+			//AR.logger.warning("id: "+descripcion[i][0]+"  dist: "+dist);
+			poisID.push({
+				"id" : descripcion[i][0],
+				"distancia": dist
 			});
 		}
-		//var nombre="Edwin";
-		/*poiData.push({
-				"id": (4),
-				"longitude": (-104.848677),
-				"latitude": (21.484419),
-				"description": ("h:" + String(descripcion[0][2])),
-				"altitude": "100.0",
-				"name": ("Dentro")
-			});
-	  poiData.push({
-				"id": (5),
-				"longitude": (-104.848881),
-				"latitude": (21.484506),
-				"description": ("h:" + String(centerPointLatitude)),
-				"altitude": "100.0",
-				"name": ("Guardia")
-			});
-		poiData.push({
-				"id": (6),
-				"longitude": (-104.848553),
-				"latitude": (21.484172),
-				"description": ("h:" + String(centerPointLatitude)),
-				"altitude": "100.0",
-				"name": ("Pérgola")
-			});
-		poiData.push({
-				"id": (7),
-				"longitude": (-104.848787),
-				"latitude": (21.484187),
-				"description": ("h:" + String(centerPointLatitude)),
-				"altitude": "100.0",
-				"name": ("Otro")
-			});*/
-		
+		poisID=sortByKey(poisID,"distancia");
+		var poiData = [];
 		
 
+
+		//var distanceToUserValue = (markerLocation.distanceToUser() > 999) ? ((markerLocation.distanceToUser() / 1000).toFixed(2) + " km") : (Math.round(markerLocation.distanceToUser()) + " m");
+		for (var i = 0; i < poisToCreate; i++) {
+			var id=poisID[i].id-1;
+			var distancia=poisID[i].distancia;
+			poiData.push({
+				"id": (id + 1),
+				"longitude": (descripcion[id][6]), 
+				"latitude": (descripcion[id][5]),
+				//"description": (String(dist)+" m"),
+				"description": (String ((distancia > 999) ? ((distancia / 1000).toFixed(2) + " km") : (Math.round(distancia) + " m") )),
+				"altitude": "990.0",
+				"cat": (descripcion[id][1]),
+				"name": (String(descripcion[id][2]))
+			});
+		}
+		
 		World.loadPoisFromJsonData(poiData);
 	}
 
