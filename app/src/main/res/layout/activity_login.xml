@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:gravity="center"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@mipmap/bottomf"
@@ -23,15 +24,6 @@
         android:background="@mipmap/iniciar"
         android:id="@+id/btnLogin" />
 
-    <!--<TextView
-        android:text="@string/title_pass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvTitlePass"
-        android:layout_marginTop="13dp"
-        android:layout_below="@+id/etUsuarioLog"
-        android:layout_alignStart="@+id/etPassLog"
-        android:textColor="@android:color/background_dark" />-->
 
     <CheckBox
         android:text="@string/title_recordar"
@@ -44,14 +36,6 @@
         android:layout_toStartOf="@+id/tvRegistro"
         android:textColor="#0b0a0c"
         android:layout_alignEnd="@+id/etPassLog" />
-
-    <!--<ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_menu_close_clear_cancel"
-        android:id="@+id/ivBtnCerrar"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />-->
 
     <EditText
         android:hint="Usuario"
@@ -104,7 +88,6 @@
         android:layout_height="161.5dp"
         android:src="@mipmap/main_logo"
         android:id="@+id/ivLogo"
-        android:layout_marginTop="33dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -120,5 +103,6 @@
         android:gravity="center_horizontal"
         android:layout_above="@+id/etPassLog"
         android:layout_alignParentStart="true" />
+
 
 </RelativeLayout>

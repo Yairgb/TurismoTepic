@@ -127,19 +127,20 @@ var World = {
 		*/
 		var l2=new AR.GeoLocation(parseFloat(lat),parseFloat(lon));
 
+		
 		if (blat==null)
 		{
 			blat=lat;
 			blon=lon;
 			AR.logger.warning(blat+","+blon);
-			World.requestDataFromLocal(lat, lon);
+			World.requestDataFromLocal(lat, lon,alt);
 		}else{
 			AR.logger.warning(blat+","+blon);
 			var walk = l2.distanceTo(new AR.GeoLocation(parseFloat(blat),parseFloat(blon)));
 			AR.logger.warning("Walk = "+walk);
 			if (walk>10){
 				AR.logger.warning("cambió más de 10m");
-				World.requestDataFromLocal(lat, lon);	
+				World.requestDataFromLocal(lat, lon,alt);	
 				blat=lat;
 				blon=lon;
 			}
@@ -188,9 +189,10 @@ var World = {
 	},
 
 	// request POI data
-	requestDataFromLocal: function requestDataFromLocalFn(centerPointLatitude, centerPointLongitude) {
+	requestDataFromLocal: function requestDataFromLocalFn(centerPointLatitude, centerPointLongitude, centerPointAltitude) {
 		var poisToCreate = 15;
 		var poisID=[];
+		AR.logger.warning("Altitud" + centerPointAltitude);
 		for(var i=0;i<descripcion.length;i++){
 
 			var location= new AR.GeoLocation(parseFloat(descripcion[i][5]),parseFloat(descripcion[i][6]));
@@ -214,6 +216,7 @@ var World = {
 				"id": (id + 1),
 				"longitude": (descripcion[id][6]), 
 				"latitude": (descripcion[id][5]),
+				"altitude": (centerPointAltitude+(i*10)),
 				//"description": (String(dist)+" m"),
 				"description": (String ((distancia > 999) ? ((distancia / 1000).toFixed(2) + " km") : (Math.round(distancia) + " m") )),
 				"altitude": "990.0",

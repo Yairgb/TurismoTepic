@@ -25,6 +25,7 @@
     <string name="btn_aceptar">Aceptar</string>
 
     <string name="title_pois">Puntos de interés</string>
+    <string name="title_rutap">Ruta a punto de interés</string>
 
     <string name="title_login">Iniciar sesión</string>
     <string name="title_nombre">Nombre</string>
@@ -77,6 +78,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="label_duration">0 min</string>
+    <string name="label_distance">0 km</string>
+
+
 
 
 </resources>

@@ -9,8 +9,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:id="@+id/lname"
         android:gravity="bottom|center_horizontal"
         android:paddingBottom="10dp"
+        android:background="#F29100"
         >
 
         <ImageView
@@ -35,8 +37,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/lname"
         android:layout_centerHorizontal="true"
         android:id="@+id/linearLayout1">
 

@@ -75,7 +75,9 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
             android:name="com.ut3.ehg.turismotepic.SplashScreen"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -84,7 +86,9 @@
         </activity>
         <activity
             android:name="com.ut3.ehg.turismotepic.SplashScreen2"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 />
@@ -92,9 +96,9 @@
         </activity>
         <activity
             android:name="com.ut3.ehg.turismotepic.Login"
+            android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar.Fullscreen"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar.Fullscreen" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.ut3.ehg.turismotepic.Registro"
             android:configChanges="keyboardHidden|orientation|screenSize"

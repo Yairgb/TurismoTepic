@@ -29,7 +29,8 @@ public class DetalladoActivity extends Fragment implements View.OnClickListener 
     Context cntx;
     SharedPreferences poi,ubic;
     SharedPreferences.Editor editarUbic;
-
+    int cat;
+    String destino;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -52,6 +53,8 @@ public class DetalladoActivity extends Fragment implements View.OnClickListener 
         poisdb.open();
         datos=poisdb.getDatos(idPlace);
         datos.moveToFirst();
+        cat=datos.getInt(1);
+        destino=datos.getString(2);
         nombre.setText(datos.getString(2));
         posicion.setText("("+datos.getString(5)+" "+datos.getString(6)+")");
         horario.setText("Horario: "+datos.getString(7));
@@ -83,6 +86,8 @@ public class DetalladoActivity extends Fragment implements View.OnClickListener 
         ubic = getContext().getSharedPreferences("ubic",MODE_PRIVATE);
         editarUbic=ubic.edit();
         editarUbic.putString("loc",loc);
+        editarUbic.putInt("cat",cat);
+        editarUbic.putString("destino",destino);
         editarUbic.commit();
     }
 }

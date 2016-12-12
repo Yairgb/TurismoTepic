@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -20,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,7 +60,8 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback, Direct
     ViewGroup root;
     Context cntx;
     LocationProvider loc;
-    String latitud, longitud;
+    String latitud, longitud,destino;
+    int cat;
     Location location;
     LocationManager lm;
 
@@ -108,14 +111,8 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback, Direct
         String loc=ubic.getString("loc","");
         String origin = latitud+","+longitud;
         String destination = loc;
-        if (origin.isEmpty()) {
-            Toast.makeText(getContext(), "Please enter origin address!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (destination.isEmpty()) {
-            Toast.makeText(getContext(), "Please enter destination address!", Toast.LENGTH_SHORT).show();
-            return;
-        }
+        cat=ubic.getInt("cat",0);
+        destino=ubic.getString("destino","");
 
         try {
             new DirectionFinder(this, origin, destination).execute();
@@ -127,8 +124,8 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback, Direct
 
     @Override
     public void onDirectionFinderStart() {
-        progressDialog = ProgressDialog.show(getContext(), "Please wait.",
-                "Finding direction..!", true);
+        progressDialog = ProgressDialog.show(getContext(), "Espera",
+                "Buscando las indicaciones", true);
 
         if (originMarkers != null) {
             for (Marker marker : originMarkers) {
@@ -152,6 +149,11 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback, Direct
 
     @Override
     public void onDirectionFinderSuccess(List<Route> routes) {
+        System.out.println("Cat: "+cat);
+        String image=getIcono(cat);
+        int id = getResources().getIdentifier(image, "drawable", getActivity().getPackageName());
+        Drawable drawable = getResources().getDrawable(id);
+        //iv1.setImageDrawable(drawable);
         progressDialog.dismiss();
         polylinePaths = new ArrayList<>();
         originMarkers = new ArrayList<>();
@@ -159,21 +161,21 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback, Direct
 
         for (Route route : routes) {
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(route.startLocation, 16));
-            //((TextView) findViewById(R.id.tvDuration)).setText(route.duration.text);
-            //((TextView) findViewById(R.id.tvDistance)).setText(route.distance.text);
+            ((TextView) getActivity().findViewById(R.id.tvDuration)).setText(route.duration.text);
+            ((TextView) getActivity().findViewById(R.id.tvDistance)).setText(route.distance.text);
 
             originMarkers.add(mMap.addMarker(new MarkerOptions()
-                    //.icon(BitmapDescriptorFactory.fromResource(R.drawable.start_blue))
-                    .title(route.startAddress)
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.inicio))
+                    .title("Tu ubicación")
                     .position(route.startLocation)));
             destinationMarkers.add(mMap.addMarker(new MarkerOptions()
-                    //.icon(BitmapDescriptorFactory.fromResource(R.drawable.end_green))
-                    .title(route.endAddress)
+                    .icon(BitmapDescriptorFactory.fromResource(id))
+                    .title(destino)
                     .position(route.endLocation)));
 
             PolylineOptions polylineOptions = new PolylineOptions().
                     geodesic(true).
-                    color(Color.RED).
+                    color(Color.parseColor("#F29100")).
                     width(10);
 
             for (int i = 0; i < route.points.size(); i++)
@@ -181,5 +183,43 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback, Direct
 
             polylinePaths.add(mMap.addPolyline(polylineOptions));
         }
+    }
+
+    public String getIcono(int cat) {
+        String icono="";
+        switch(cat){
+            case 1:
+                icono="hoteles_ico";
+                break;
+            case 2:
+                icono="restaurantes_ico";
+                break;
+            case 3:
+                icono="monumentos_ico";
+                break;
+            case 4:
+                icono="museos_ico";
+                break;
+            case 5:
+                icono="bancos_ico";
+                break;
+            case 6:
+                icono="farmacias_ico";
+                break;
+            case 7:
+                icono="tiendas_ico";
+                break;
+            case 8:
+                icono="mall_ico";
+                break;
+            case 9:
+                icono="parques_ico";
+                break;
+            case 10:
+                icono="otros_ico";
+                break;
+
+        }
+        return icono;
     }
 }
