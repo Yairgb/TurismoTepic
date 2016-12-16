@@ -3,6 +3,7 @@ package com.ut3.ehg.turismotepic;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
@@ -46,7 +47,8 @@ public class DetalladoActivity extends Fragment implements View.OnClickListener 
         TextView posicion= (TextView)root.findViewById(R.id.posicion);
         TextView horario =(TextView)root.findViewById(R.id.horario);
         TextView costo=(TextView)root.findViewById(R.id.costo);
-        TextView descripcion=(TextView)root.findViewById(R.id.descripcion);
+        //TextView descripcion=(TextView)root.findViewById(R.id.descripcion);
+        JustifiedTextView J = (JustifiedTextView)root.findViewById(R.id.descripcion);
         ImageButton bruta = (ImageButton)root.findViewById(R.id.bruta);
         //Obtención de los datos
         poisdb= new rc_pois(root.getContext());
@@ -59,7 +61,10 @@ public class DetalladoActivity extends Fragment implements View.OnClickListener 
         posicion.setText("("+datos.getString(5)+" "+datos.getString(6)+")");
         horario.setText("Horario: "+datos.getString(7));
         costo.setText("Costo: "+datos.getString(9));
-        descripcion.setText(datos.getString(4));
+        J.setText(datos.getString(4));
+        J.setTextColor(Color.BLACK);
+        J.setTextSize(13);
+        //descripcion.setText(datos.getString(4));
         bruta.setOnClickListener(this);
 
 

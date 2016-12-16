@@ -177,8 +177,27 @@ var World = {
 		}
 
 		// highlight current one
-		marker.setSelected(marker);
-		World.currentMarker = marker;
+		//marker.setSelected(marker);
+		//World.currentMarker = marker;
+
+
+		 // update panel values
+    $("#poi-detail-title").html(marker.poiData.title);
+    $("#poi-detail-description").html(marker.poiData.description);
+
+    var distanceToUserValue = (marker.distanceToUser > 999) ? ((marker.distanceToUser / 1000).toFixed(2) + " km") : (Math.round(marker.distanceToUser) + " m");
+
+    $("#poi-detail-distance").html(distanceToUserValue);
+
+    // show panel
+    $("#panel-poidetail").panel("open", 123);
+
+    $("#panel-poidetail").on("panelbeforeclose", function(event, ui) {
+    World.currentMarker.setDeselected(World.currentMarker)});
+
+
+
+
 	},
 
 	// screen was clicked but no geo-object was hit

@@ -101,18 +101,26 @@
                 android:text="Costo: Entrada libre"
                 />
 
-            <com.ut3.ehg.turismotepic.JustifyTextView
+                <com.ut3.ehg.turismotepic.JustifiedTextView
+                    android:id="@+id/descripcion"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp">
+
+                </com.ut3.ehg.turismotepic.JustifiedTextView>
+            <!--<com.ut3.ehg.turismotepic.JustifyTextView
                 android:id="@+id/descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="20dp"
+
                 android:textSize="13dp"
                 android:textColor="#000"
-                android:text="En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado.
-    "
-                />
+                android:text="En el centro de la ciudad de Tepic, precisamente frente a la plaza principal, se localiza la hermosa Catedral de Tepic, un templo católico correspondiente a la diócesis de la zona.Considerada como la Iglesia Madre preside las celebraciones litúrgicas, brinda justicia y ofrece los Sacramentos al rebaño encomendado."
+                />-->
+
             </LinearLayout>
         </ScrollView>
         <LinearLayout

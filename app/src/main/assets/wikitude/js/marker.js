@@ -23,7 +23,7 @@ function Marker(poiData,drawable) {
     // create an AR.ImageDrawable for the marker in selected state
     this.markerDrawable_selected = new AR.ImageDrawable(World.markerDrawable_selected, 3, {
         zOrder: 0,
-        offsetY: -2.2,
+        offsetY: -3,
         opacity: 0.0,
         onClick: null
     });
@@ -42,7 +42,7 @@ function Marker(poiData,drawable) {
     //var location1 = new AR.GeoLocation(parseInt(descripcion[i][5]),parseInt(descripcion[i][6]));
     //var distance= marker.distanceToUser();
     
-    this.descriptionLabel = new AR.Label(poiData.description, 0.8, {
+    this.descriptionLabel = new AR.Label("hola  hola otra ", 0.8, {
         zOrder: 1,
         opacity:0,
         offsetY: -2.3,
@@ -95,10 +95,6 @@ Marker.prototype.setSelected = function(marker) {
     marker.isSelected = true;
     //marker.markerDrawable_idle.opacity = 0.0;
     marker.markerDrawable_selected.opacity = 1.0;
-    marker.titleLabel.style = {
-            textColor: '#ea5b0c',
-            fontStyle: AR.CONST.FONT_STYLE.BOLD
-        };
     marker.markerDrawable_idle.onClick = null;
     marker.markerDrawable_selected.onClick = Marker.prototype.getOnClickTrigger(marker);
 };
@@ -107,10 +103,6 @@ Marker.prototype.setDeselected = function(marker) {
     
     marker.descriptionLabel.opacity=0;
     marker.isSelected = false;
-    marker.titleLabel.style = {
-            textColor: '#FFFFFF',
-            fontStyle: AR.CONST.FONT_STYLE.BOLD
-        };
     //marker.markerDrawable_idle.opacity = 1.0;
     marker.markerDrawable_selected.opacity = 0.0;
 
