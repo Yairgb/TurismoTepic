@@ -20,7 +20,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:itemTextColor="#FFF"
-        app:itemIconTint="#FFFFFF"
+
         android:background="@mipmap/fbar"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"

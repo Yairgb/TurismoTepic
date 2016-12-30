@@ -91,7 +91,8 @@ var World = {
 				"longitude": parseFloat(poiData[currentPlaceNr].longitude),
 				"altitude": parseFloat(poiData[currentPlaceNr].altitude),
 				"title": poiData[currentPlaceNr].name,
-				"description": poiData[currentPlaceNr].description
+				"description": poiData[currentPlaceNr].description,
+				"distancia":poiData[currentPlaceNr].distancia
 			};
 
 			/*
@@ -177,23 +178,11 @@ var World = {
 		}
 
 		// highlight current one
-		//marker.setSelected(marker);
-		//World.currentMarker = marker;
+		marker.setSelected(marker);
+		World.currentMarker = marker;
 
 
-		 // update panel values
-    $("#poi-detail-title").html(marker.poiData.title);
-    $("#poi-detail-description").html(marker.poiData.description);
-
-    var distanceToUserValue = (marker.distanceToUser > 999) ? ((marker.distanceToUser / 1000).toFixed(2) + " km") : (Math.round(marker.distanceToUser) + " m");
-
-    $("#poi-detail-distance").html(distanceToUserValue);
-
-    // show panel
-    $("#panel-poidetail").panel("open", 123);
-
-    $("#panel-poidetail").on("panelbeforeclose", function(event, ui) {
-    World.currentMarker.setDeselected(World.currentMarker)});
+	
 
 
 
@@ -237,7 +226,8 @@ var World = {
 				"latitude": (descripcion[id][5]),
 				"altitude": (centerPointAltitude+(i*10)),
 				//"description": (String(dist)+" m"),
-				"description": (String ((distancia > 999) ? ((distancia / 1000).toFixed(2) + " km") : (Math.round(distancia) + " m") )),
+				"distancia": (String ((distancia > 999) ? ((distancia / 1000).toFixed(2) + " km") : (Math.round(distancia) + " m") )),
+				"description": (descripcion[id][4]),
 				"altitude": "990.0",
 				"cat": (descripcion[id][1]),
 				"name": (String(descripcion[id][2]))

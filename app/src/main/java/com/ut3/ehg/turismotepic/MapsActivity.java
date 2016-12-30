@@ -160,7 +160,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback, Direct
         destinationMarkers = new ArrayList<>();
 
         for (Route route : routes) {
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(route.startLocation, 16));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(route.startLocation, 14));
             ((TextView) getActivity().findViewById(R.id.tvDuration)).setText(route.duration.text);
             ((TextView) getActivity().findViewById(R.id.tvDistance)).setText(route.distance.text);
 

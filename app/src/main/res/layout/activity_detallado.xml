@@ -65,10 +65,13 @@
                 android:layout_height="match_parent">
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:gravity="center"
+                android:background="#F29100"
                 android:textSize="17dp"
-                android:textColor="#F29100"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="#FFF"
                 android:textStyle="bold"
                 android:text="Lugar"
                 android:id="@+id/lugar"
@@ -132,7 +135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
-                android:src="@mipmap/ubicacion"
+                android:src="@mipmap/btnaaa"
                 android:background="@android:color/transparent"
                 />
 

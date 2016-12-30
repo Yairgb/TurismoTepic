@@ -51,6 +51,7 @@ function Marker(poiData,drawable) {
         }
     });
 
+
     // create the AR.GeoObject with the drawable objects
     this.markerObject = new AR.GeoObject(markerLocation, {
         drawables: {
@@ -91,17 +92,33 @@ Marker.prototype.getOnClickTrigger = function(marker) {
 };
 
 Marker.prototype.setSelected = function(marker) {
-    marker.descriptionLabel.opacity=1;
+    //marker.descriptionLabel.opacity=1;
     marker.isSelected = true;
     //marker.markerDrawable_idle.opacity = 0.0;
-    marker.markerDrawable_selected.opacity = 1.0;
+    /*marker.markerDrawable_selected.opacity = 1.0;
     marker.markerDrawable_idle.onClick = null;
-    marker.markerDrawable_selected.onClick = Marker.prototype.getOnClickTrigger(marker);
+    marker.markerDrawable_selected.onClick = Marker.prototype.getOnClickTrigger(marker);*/
+
+         // update panel values
+    $('#panel-poidetaile').show();
+    $("#poi-detail-title").html(marker.poiData.title);
+    $("#poi-detail-description").html(marker.poiData.description);
+
+    var distanceToUserValue = (marker.distanceToUser > 999) ? ((marker.distanceToUser / 1000).toFixed(2) + " km") : (Math.round(marker.distanceToUser) + " m");
+
+    $("#poi-detail-distance").html(marker.poiData.distancia);
+
+    // show panel
+    $("#panel-poidetail").panel("open", 123);
+
+    $("#panel-poidetail").on("panelbeforeclose", function(event, ui) {
+    World.currentMarker.setDeselected(World.currentMarker)});
 };
 
 Marker.prototype.setDeselected = function(marker) {
     
-    marker.descriptionLabel.opacity=0;
+    //marker.descriptionLabel.opacity=0;
+    $('#panel-poidetaile').hide();
     marker.isSelected = false;
     //marker.markerDrawable_idle.opacity = 1.0;
     marker.markerDrawable_selected.opacity = 0.0;
